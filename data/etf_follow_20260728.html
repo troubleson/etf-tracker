@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETF 異動跟進分析</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        :root {
+            --bg-primary: #0f1117; --bg-secondary: #1a1d28; --bg-card: #222639;
+            --bg-card-hover: #2a2f45; --border: #2d3250;
+            --text-primary: #e8eaf0; --text-secondary: #9ca3b8; --text-muted: #6b7394;
+            --accent-blue: #5b8def; --accent-green: #34d399; --accent-red: #f87171;
+            --accent-yellow: #fbbf24; --accent-purple: #a78bfa; --accent-orange: #fb923c;
+            --accent-cyan: #22d3ee; --accent-gold: #f59e0b;
+            --gradient-hero: linear-gradient(135deg, #1e2340 0%, #0f1117 50%, #1a1030 100%);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter','Noto Sans TC',-apple-system,sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 30px; }
+
+        /* Hero */
+        .hero { background: var(--gradient-hero); border: 1px solid var(--border); border-radius: 20px; padding: 50px 40px; margin-bottom: 0; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(91,141,239,0.08) 0%, transparent 70%); pointer-events: none; }
+        .hero h1 { font-size: 2em; font-weight: 700; background: linear-gradient(135deg, #5b8def, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+        .hero .subtitle { color: var(--text-secondary); font-size: 1em; margin-bottom: 20px; }
+        .hero .meta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .meta-item { background: rgba(91,141,239,0.08); border: 1px solid rgba(91,141,239,0.15); border-radius: 12px; padding: 12px 16px; min-width: 110px; }
+        .meta-item .label { color: var(--text-muted); font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+        .meta-item .value { font-size: 1.3em; font-weight: 700; }
+        .meta-item .value.blue { color: var(--accent-blue); } .meta-item .value.green { color: var(--accent-green); }
+        .meta-item .value.orange { color: var(--accent-orange); } .meta-item .value.purple { color: var(--accent-purple); }
+        .meta-item .value.cyan { color: var(--accent-cyan); } .meta-item .value.red { color: var(--accent-red); }
+
+        /* Nav Bar */
+        .nav-bar { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); margin: 0 -30px; padding: 0 30px; }
+        .nav-inner { display: flex; gap: 6px; overflow-x: auto; padding: 12px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav-item { display: flex; align-items: center; gap: 4px; white-space: nowrap; padding: 6px 14px; border-radius: 20px; font-size: 0.82em; font-weight: 500; color: var(--text-secondary); text-decoration: none; border: 1px solid transparent; transition: all 0.2s; flex-shrink: 0; }
+        .nav-item:hover { background: var(--bg-card); border-color: var(--border); color: var(--text-primary); }
+        .nav-count { background: var(--bg-card); color: var(--accent-blue); padding: 1px 7px; border-radius: 10px; font-size: 0.9em; font-weight: 700; margin-left: 2px; }
+
+        /* Section */
+        .section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-top: 25px; scroll-margin-top: 60px; }
+        .section h2 { font-size: 1.35em; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .section-desc { color: var(--text-secondary); font-size: 0.9em; margin: -12px 0 20px 0; }
+
+        /* Badges */
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 600; }
+        .badge-new { background: rgba(248,113,113,0.15); color: var(--accent-red); }
+        .badge-increase { background: rgba(251,191,36,0.15); color: var(--accent-yellow); }
+        .badge-exit { background: rgba(52,211,153,0.15); color: var(--accent-green); }
+        .badge-decrease { background: rgba(251,146,60,0.15); color: var(--accent-orange); }
+        .etf-tag { display: inline-block; background: rgba(91,141,239,0.15); color: var(--accent-blue); padding: 3px 10px; border-radius: 8px; font-size: 0.82em; font-weight: 600; letter-spacing: 0.5px; cursor: help; }
+
+        /* Follow Card */
+        .follow-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s; }
+        .follow-card:hover { border-color: var(--accent-purple); }
+        .follow-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+        .stock-info { display: flex; align-items: baseline; gap: 10px; }
+        .stock-code { font-size: 1.3em; font-weight: 700; color: var(--accent-blue); }
+        .stock-name { font-size: 1em; color: var(--text-secondary); }
+        .follow-count { padding: 5px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 600; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(to bottom, var(--accent-green), var(--accent-purple)); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 16px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -26px; top: 8px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid; }
+        .timeline-content { background: rgba(34,38,57,0.5); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+        .timeline-date { font-weight: 600; font-size: 0.92em; margin-bottom: 6px; color: var(--text-primary); }
+        .delta { color: var(--accent-yellow); font-size: 0.85em; margin-left: 6px; }
+        .timeline-detail { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .shares-info { color: var(--text-secondary); font-size: 0.85em; }
+        .timeline-label { color: var(--text-muted); font-size: 0.78em; margin-top: 6px; }
+
+        /* Sync Card */
+        .sync-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; transition: border-color 0.2s; }
+        .sync-card:hover { border-color: var(--accent-cyan); }
+        .sync-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .sync-meta { display: flex; gap: 10px; align-items: center; }
+        .sync-date { color: var(--text-secondary); font-size: 0.9em; }
+        .sync-count { padding: 4px 12px; border-radius: 20px; font-size: 0.82em; font-weight: 600; }
+        .sync-etfs { display: flex; flex-wrap: wrap; gap: 10px; }
+        .sync-etf { display: flex; align-items: center; gap: 6px; background: rgba(34,38,57,0.5); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; }
+
+        /* Table */
+        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .solo-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88em; min-width: 600px; }
+        .solo-table th { background: var(--bg-card); color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.75em; letter-spacing: 0.8px; padding: 12px 10px; text-align: center; border-bottom: 2px solid var(--accent-blue); cursor: pointer; white-space: nowrap; user-select: none; }
+        .solo-table th:hover { color: var(--accent-blue); }
+        .solo-table td { padding: 10px; text-align: center; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+        .solo-table tr:hover td { background: var(--bg-card-hover); }
+
+        /* Misc */
+        .empty-state { color: var(--text-muted); font-style: italic; padding: 30px; text-align: center; background: var(--bg-card); border-radius: 12px; border: 1px dashed var(--border); }
+        .config-note { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; margin-top: 20px; font-size: 0.85em; color: var(--text-secondary); display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .config-note strong { color: var(--accent-purple); }
+        .footer { text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8em; border-top: 1px solid var(--border); margin-top: 40px; }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .hero { padding: 25px 20px; }
+            .hero h1 { font-size: 1.5em; }
+            .hero .meta { gap: 8px; }
+            .meta-item { min-width: 90px; padding: 8px 12px; }
+            .meta-item .value { font-size: 1.1em; }
+            .follow-header, .sync-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .timeline-detail { flex-direction: column; align-items: flex-start; }
+            .nav-bar { margin: 0 -15px; padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="hero">
+        <h1>🔍 ETF 異動跟進分析</h1>
+        <p class="subtitle">追蹤新建倉、大幅加倉、全部出清與大幅減倉事件，識別跨 ETF 跟進模式與多空分歧</p>
+        <div class="meta">
+            <div class="meta-item"><div class="label">分析範圍</div><div class="value blue" style="font-size:1em;">2026/07/22 ~ 2026/07/28</div></div>
+            <div class="meta-item"><div class="label">涵蓋 ETF</div><div class="value blue">9 檔</div></div>
+            <div class="meta-item"><div class="label">新建倉</div><div class="value green">12</div></div>
+            <div class="meta-item"><div class="label">大幅加倉</div><div class="value orange">47</div></div>
+            <div class="meta-item"><div class="label">全部出清</div><div class="value red">9</div></div>
+            <div class="meta-item"><div class="label">大幅減倉</div><div class="value orange">9</div></div>
+            <div class="meta-item"><div class="label">多空分歧</div><div class="value purple">2</div></div>
+        </div>
+    </div>
+
+    <div class="nav-bar"><div class="nav-inner"><a href="#section-buy-follow" class="nav-item">📡 買進跟進<span class="nav-count">9</span></a><a href="#section-buy-sync" class="nav-item">⚡ 同步建倉<span class="nav-count">5</span></a><a href="#section-buy-solo" class="nav-item">🔕 無跟進買進<span class="nav-count">33</span></a><a href="#section-sell-follow" class="nav-item">📉 出清跟進<span class="nav-count">1</span></a><a href="#section-sell-sync" class="nav-item">⚡ 同步出清<span class="nav-count">2</span></a><a href="#section-sell-solo" class="nav-item">🔕 無跟進出清<span class="nav-count">13</span></a><a href="#section-divergence" class="nav-item">🔄 多空分歧<span class="nav-count">2</span></a><a href="#section-consecutive" class="nav-item">📊 連續操作<span class="nav-count">31</span></a><a href="#section-stats" class="nav-item">📈 ETF 統計</a></div></div>
+
+    <div class="config-note">
+        ⚙️ <span>跟進窗口：<strong>5 天</strong> ｜ 大幅加倉：<strong>≥ 20%</strong> ｜ 大幅減倉：<strong>≤ -20%</strong> ｜ 分析 ETF：<strong>00403A, 00405A, 00406A, 00981A, 00984A, 00987A, 00988A, 00991A, 00992A</strong></span>
+    </div>
+
+    
+    <div class="section" id="section-buy-follow">
+        <h2>📡 買進跟進事件 — 先行者 → 跟進者</h2>
+        <p class="section-desc">某 ETF 率先新建倉或大幅加倉某股票後，5 天內有其他 ETF 跟進同一檔股票</p>
+        <div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">3189</span>
+                    <span class="stock-name">景碩科技</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00984A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">136,000 → 165,000 股 (+21.32%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/27 <span class="delta">+5天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">78,000 → 103,000 股 (+32.05%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一升級50">00403A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">376,000 → 490,000 股 (+30.32%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/23 <span class="delta">+1天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00405A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">115,000 → 495,000 股 (+330.43%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00405A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">5,000 → 115,000 股 (+2200.00%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/23 <span class="delta">+1天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一升級50">00403A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">490,000 → 600,000 股 (+22.45%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">6285</span>
+                    <span class="stock-name">啟碁</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一升級50">00403A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">100,000 → 250,000 股 (+150.00%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/27 <span class="delta">+5天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">180,000 → 243,000 股 (+35.00%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">6488</span>
+                    <span class="stock-name">環球晶圓</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="復華未來50">00991A</span>
+                            <span class="badge badge-new">新建倉</span>
+                            <span class="shares-info">0 → 300,000 股 (N/A)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/23 <span class="delta">+1天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">66,000 → 80,000 股 (+21.21%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">7769</span>
+                    <span class="stock-name">鴻勁</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/22</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一台灣高息優選">00987A</span>
+                            <span class="badge badge-new">新建倉</span>
+                            <span class="shares-info">0 → 5,000 股 (N/A)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/27 <span class="delta">+5天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">13,000 → 20,000 股 (+53.85%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">2454</span>
+                    <span class="stock-name">聯發科</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/23</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一台灣高息優選">00987A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">24,000 → 32,000 股 (+33.33%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/28 <span class="delta">+5天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">146,000 → 182,000 股 (+24.66%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">7769</span>
+                    <span class="stock-name">鴻勁</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">1 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/23</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一台灣高息優選">00987A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">5,000 → 10,000 股 (+100.00%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/28 <span class="delta">+5天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">20,000 → 24,000 股 (+20.00%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div><div class="follow-card" style="border-color: var(--border);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-blue);">3443</span>
+                    <span class="stock-name">創意</span>
+                </div>
+                <span class="follow-count" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">2 檔跟進</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-green);background:rgba(52,211,153,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-green);">
+                        <div class="timeline-date">2026/07/24</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一台灣高息優選">00987A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">24,000 → 30,000 股 (+25.00%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/27 <span class="delta">+3天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">4,000 → 21,000 股 (+425.00%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-purple);background:rgba(167,139,250,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-purple);">
+                        <div class="timeline-date">2026/07/28 <span class="delta">+4天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-increase">大幅加倉</span>
+                            <span class="shares-info">21,000 → 34,000 股 (+61.90%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進者</div>
+                    </div>
+                </div></div></div>
+    </div>
+
+    
+    <div class="section" id="section-buy-sync">
+        <h2>⚡ 同步建倉 — 同一天多檔 ETF 建倉</h2>
+        <p class="section-desc">同一天有 2 檔以上 ETF 同時新建倉或大幅加倉同一檔股票</p>
+        <div class="sync-card" style="border-color:var(--border);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/22</span>
+                    <span class="sync-count" style="background:rgba(34,211,238,0.15);color:var(--accent-cyan);">3 檔同步</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag" title="統一升級50">00403A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">376,000 → 490,000 股 (+30.32%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00405A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">5,000 → 115,000 股 (+2200.00%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag" title="復華未來50">00991A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">460,000 → 560,000 股 (+21.74%)</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--border);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/23</span>
+                    <span class="sync-count" style="background:rgba(34,211,238,0.15);color:var(--accent-cyan);">2 檔同步</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag" title="統一升級50">00403A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">490,000 → 600,000 股 (+22.45%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00405A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">115,000 → 495,000 股 (+330.43%)</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--border);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6669</span>
+                    <span class="stock-name">緯穎</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/24</span>
+                    <span class="sync-count" style="background:rgba(34,211,238,0.15);color:var(--accent-cyan);">2 檔同步</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag">00405A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">5,000 → 145,000 股 (+2800.00%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00992A</span>
+                <span class="badge badge-new">新建倉</span>
+                <span class="shares-info">0 → 77,000 股 (N/A)</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--border);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">8021</span>
+                    <span class="stock-name">尖點</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/24</span>
+                    <span class="sync-count" style="background:rgba(34,211,238,0.15);color:var(--accent-cyan);">2 檔同步</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag">00984A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">262,000 → 333,000 股 (+27.10%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00992A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">1,501,000 → 2,501,000 股 (+66.62%)</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--border);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/28</span>
+                    <span class="sync-count" style="background:rgba(34,211,238,0.15);color:var(--accent-cyan);">2 檔同步</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag">00405A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">495,000 → 675,000 股 (+36.36%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00406A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">106,000 → 148,000 股 (+39.62%)</span>
+            </div></div>
+        </div>
+    </div>
+
+    
+    <div class="section" id="section-buy-solo">
+        <h2>🔕 無跟進的買進事件</h2>
+        <p class="section-desc">以下新建倉或大幅加倉事件在 5 天內無其他 ETF 跟進</p>
+        <div class="table-wrapper"><table class="solo-table" id="buy-solo-table">
+        <thead><tr>
+            <th onclick="sortTable('buy-solo-table',0)">日期 ⇅</th>
+            <th onclick="sortTable('buy-solo-table',1)">ETF ⇅</th>
+            <th onclick="sortTable('buy-solo-table',2)">代號 ⇅</th>
+            <th>名稱</th>
+            <th>類型</th>
+            <th onclick="sortTable('buy-solo-table',5)">前日股數 ⇅</th>
+            <th onclick="sortTable('buy-solo-table',6)">今日股數 ⇅</th>
+            <th onclick="sortTable('buy-solo-table',7)">增減% ⇅</th>
+        </tr></thead><tbody><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>2404</td>
+            <td>漢唐</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>140,000</td>
+            <td>180,000</td>
+            <td>+28.57%</td>
+        </tr><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td>2408</td>
+            <td>南亞科</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>940,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3583</td>
+            <td>辛耘企業</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>50,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td>4958</td>
+            <td>臻鼎-KY</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>1,000</td>
+            <td>1,682,000</td>
+            <td>+168100.00%</td>
+        </tr><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="復華未來50">00991A</span></td>
+            <td>5274</td>
+            <td>信驊科技</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>62,500</td>
+            <td>80,500</td>
+            <td>+28.80%</td>
+        </tr><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>6239</td>
+            <td>力成</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>1,400,000</td>
+            <td>1,900,000</td>
+            <td>+35.71%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag" title="復華未來50">00991A</span></td>
+            <td>1303</td>
+            <td>南亞塑膠</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>4,800,000</td>
+            <td>6,000,000</td>
+            <td>+25.00%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2449</td>
+            <td>京元電子</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>100,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2486</td>
+            <td>一詮精密工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>269,000</td>
+            <td>339,000</td>
+            <td>+26.02%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3583</td>
+            <td>辛耘企業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>50,000</td>
+            <td>100,000</td>
+            <td>+100.00%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>6239</td>
+            <td>力成</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>1,900,000</td>
+            <td>2,350,000</td>
+            <td>+23.68%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag" title="統一台灣高息優選">00987A</span></td>
+            <td>6739</td>
+            <td>竹陞科技</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>20,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>8046</td>
+            <td>南亞電路板</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>222,000</td>
+            <td>268,000</td>
+            <td>+20.72%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag" title="復華未來50">00991A</span></td>
+            <td>2357</td>
+            <td>華碩電腦</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>1,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2486</td>
+            <td>一詮精密工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>339,000</td>
+            <td>439,000</td>
+            <td>+29.50%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00992A</span></td>
+            <td>3231</td>
+            <td>緯創</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>3,496,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3583</td>
+            <td>辛耘企業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>100,000</td>
+            <td>150,000</td>
+            <td>+50.00%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td>4979</td>
+            <td>華星光</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>1,874,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>1560</td>
+            <td>中砂</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>750,000</td>
+            <td>1,000,000</td>
+            <td>+33.33%</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2449</td>
+            <td>京元電子</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>100,000</td>
+            <td>200,000</td>
+            <td>+100.00%</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2486</td>
+            <td>一詮精密工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>439,000</td>
+            <td>539,000</td>
+            <td>+22.78%</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>3450</td>
+            <td>聯鈞</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>200,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>6139</td>
+            <td>亞翔工程</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>53,000</td>
+            <td>104,000</td>
+            <td>+96.23%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2395</td>
+            <td>研華</td>
+            <td><span class="badge badge-new">新建倉</span></td>
+            <td>0</td>
+            <td>95,000</td>
+            <td>N/A</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>2472</td>
+            <td>立隆電子工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>76,000</td>
+            <td>171,000</td>
+            <td>+125.00%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>3008</td>
+            <td>大立光</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>60,000</td>
+            <td>80,000</td>
+            <td>+33.33%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3189</td>
+            <td>景碩科技</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>103,000</td>
+            <td>150,000</td>
+            <td>+45.63%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00992A</span></td>
+            <td>3231</td>
+            <td>緯創</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>3,496,000</td>
+            <td>5,662,000</td>
+            <td>+61.96%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>3450</td>
+            <td>聯鈞</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>200,000</td>
+            <td>300,000</td>
+            <td>+50.00%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3583</td>
+            <td>辛耘企業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>159,000</td>
+            <td>209,000</td>
+            <td>+31.45%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>3653</td>
+            <td>健策精密工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>49,000</td>
+            <td>61,000</td>
+            <td>+24.49%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>6139</td>
+            <td>亞翔工程</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>104,000</td>
+            <td>134,000</td>
+            <td>+28.85%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>8996</td>
+            <td>高力熱處理工業</td>
+            <td><span class="badge badge-increase">大幅加倉</span></td>
+            <td>30,000</td>
+            <td>60,000</td>
+            <td>+100.00%</td>
+        </tr></tbody></table></div>
+    </div>
+
+    
+    <div class="section" id="section-sell-follow">
+        <h2>📉 出清跟進事件 — 先行減碼 → 跟進減碼</h2>
+        <p class="section-desc">某 ETF 率先全部出清或大幅減倉某股票後，5 天內有其他 ETF 跟進</p>
+        <div class="follow-card" style="border-color: rgba(52,211,153,0.3);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color: var(--accent-green);">6147</span>
+                    <span class="stock-name">頎邦科技</span>
+                </div>
+                <span class="follow-count" style="background:rgba(52,211,153,0.15);color:var(--accent-green);">1 檔跟進出清</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item leader">
+                    <div class="timeline-dot" style="border-color:var(--accent-red);background:rgba(248,113,113,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-red);">
+                        <div class="timeline-date">2026/07/23</div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag">00406A</span>
+                            <span class="badge badge-decrease">大幅減倉</span>
+                            <span class="shares-info">182,000 → 102,000 股 (-43.96%)</span>
+                        </div>
+                        <div class="timeline-label">🏁 先行減碼者</div>
+                    </div>
+                </div>
+                <div class="timeline-item follower">
+                    <div class="timeline-dot" style="border-color:var(--accent-orange);background:rgba(251,146,60,0.3);"></div>
+                    <div class="timeline-content" style="border-left:3px solid var(--accent-orange);">
+                        <div class="timeline-date">2026/07/27 <span class="delta">+4天</span></div>
+                        <div class="timeline-detail">
+                            <span class="etf-tag" title="統一升級50">00403A</span>
+                            <span class="badge badge-exit">全部出清</span>
+                            <span class="shares-info">1,000 → 0 股 (-100.00%)</span>
+                        </div>
+                        <div class="timeline-label">📡 跟進減碼者</div>
+                    </div>
+                </div></div></div>
+    </div>
+
+    
+    <div class="section" id="section-sell-sync">
+        <h2>⚡ 同步出清 — 同一天多檔 ETF 減碼</h2>
+        <p class="section-desc">同一天有 2 檔以上 ETF 同時全部出清或大幅減倉同一檔股票</p>
+        <div class="sync-card" style="border-color:rgba(52,211,153,0.3);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-green);">6515</span>
+                    <span class="stock-name">穎崴</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/22</span>
+                    <span class="sync-count" style="background:rgba(52,211,153,0.15);color:var(--accent-green);">2 檔同步出清</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag" title="統一台股增長">00981A</span>
+                <span class="badge badge-decrease">大幅減倉</span>
+                <span class="shares-info">130,000 → 93,000 股 (-28.46%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00992A</span>
+                <span class="badge badge-decrease">大幅減倉</span>
+                <span class="shares-info">99,000 → 42,000 股 (-57.58%)</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:rgba(52,211,153,0.3);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-green);">6147</span>
+                    <span class="stock-name">頎邦</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="sync-date">2026/07/27</span>
+                    <span class="sync-count" style="background:rgba(52,211,153,0.15);color:var(--accent-green);">2 檔同步出清</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="etf-tag" title="統一升級50">00403A</span>
+                <span class="badge badge-exit">全部出清</span>
+                <span class="shares-info">1,000 → 0 股 (-100.00%)</span>
+            </div><div class="sync-etf">
+                <span class="etf-tag">00406A</span>
+                <span class="badge badge-exit">全部出清</span>
+                <span class="shares-info">102,000 → 0 股 (-100.00%)</span>
+            </div></div>
+        </div>
+    </div>
+
+    
+    <div class="section" id="section-sell-solo">
+        <h2>🔕 無跟進的出清事件</h2>
+        <p class="section-desc">以下全部出清或大幅減倉事件在 5 天內無其他 ETF 跟進</p>
+        <div class="table-wrapper"><table class="solo-table" id="sell-solo-table">
+        <thead><tr>
+            <th onclick="sortTable('sell-solo-table',0)">日期 ⇅</th>
+            <th onclick="sortTable('sell-solo-table',1)">ETF ⇅</th>
+            <th onclick="sortTable('sell-solo-table',2)">代號 ⇅</th>
+            <th>名稱</th>
+            <th>類型</th>
+            <th onclick="sortTable('sell-solo-table',5)">前日股數 ⇅</th>
+            <th onclick="sortTable('sell-solo-table',6)">今日股數 ⇅</th>
+            <th onclick="sortTable('sell-solo-table',7)">增減% ⇅</th>
+        </tr></thead><tbody><tr>
+            <td>2026/07/22</td>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td>1815</td>
+            <td>富喬</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>1,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00405A</span></td>
+            <td>2337</td>
+            <td>旺宏</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>2,800,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag">00406A</span></td>
+            <td>6510</td>
+            <td>中華精測科技</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>3,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/23</td>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td>6669</td>
+            <td>緯穎</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>790,000</td>
+            <td>600,000</td>
+            <td>-24.05%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00405A</span></td>
+            <td>2049</td>
+            <td>上銀</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>19,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00405A</span></td>
+            <td>2330</td>
+            <td>台積電</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>239,000</td>
+            <td>49,000</td>
+            <td>-79.50%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag" title="統一台灣高息優選">00987A</span></td>
+            <td>3167</td>
+            <td>大量</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>88,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag" title="復華未來50">00991A</span></td>
+            <td>6488</td>
+            <td>環球晶圓</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>300,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/24</td>
+            <td><span class="etf-tag">00405A</span></td>
+            <td>8210</td>
+            <td>勤誠</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>218,000</td>
+            <td>168,000</td>
+            <td>-22.94%</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag">00992A</span></td>
+            <td>2327</td>
+            <td>國巨*</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>1,927,000</td>
+            <td>1,247,000</td>
+            <td>-35.29%</td>
+        </tr><tr>
+            <td>2026/07/27</td>
+            <td><span class="etf-tag" title="統一台灣高息優選">00987A</span></td>
+            <td>6271</td>
+            <td>同欣電</td>
+            <td><span class="badge badge-exit">全部出清</span></td>
+            <td>213,000</td>
+            <td>0</td>
+            <td>-100.00%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td>5439</td>
+            <td>高技</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>2,280,000</td>
+            <td>1,586,000</td>
+            <td>-30.44%</td>
+        </tr><tr>
+            <td>2026/07/28</td>
+            <td><span class="etf-tag">00405A</span></td>
+            <td>6291</td>
+            <td>沛亨</td>
+            <td><span class="badge badge-decrease">大幅減倉</span></td>
+            <td>220,000</td>
+            <td>110,000</td>
+            <td>-50.00%</td>
+        </tr></tbody></table></div>
+    </div>
+
+    
+    <div class="section" id="section-divergence">
+        <h2>🔄 多空分歧 — 同一股票有 ETF 建倉、有 ETF 出清</h2>
+        <p class="section-desc">在 5 天窗口內，不同 ETF 對同一股票產生方向性分歧</p>
+        <div class="follow-card" style="border-color:rgba(251,191,36,0.3);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-yellow);">6488</span>
+                    <span class="stock-name">環球晶圓</span>
+                </div>
+                <span class="follow-count" style="background:rgba(251,191,36,0.15);color:var(--accent-yellow);">多空分歧</span>
+            </div>
+            <div style="margin-bottom:12px;">
+                <div style="color:var(--accent-red);font-weight:600;font-size:0.85em;margin-bottom:8px;">📈 買進方</div>
+                <div class="sync-etfs"><div class="sync-etf" style="border-color:rgba(248,113,113,0.3);">
+                <span class="etf-tag">00406A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">66,000 → 80,000 股 (+21.21%)</span>
+                <span class="shares-info" style="color:var(--text-muted);">2026/07/23</span>
+            </div></div>
+            </div>
+            <div>
+                <div style="color:var(--accent-green);font-weight:600;font-size:0.85em;margin-bottom:8px;">📉 賣出方</div>
+                <div class="sync-etfs"><div class="sync-etf" style="border-color:rgba(52,211,153,0.3);">
+                <span class="etf-tag" title="復華未來50">00991A</span>
+                <span class="badge badge-exit">全部出清</span>
+                <span class="shares-info">300,000 → 0 股 (-100.00%)</span>
+                <span class="shares-info" style="color:var(--text-muted);">2026/07/24</span>
+            </div></div>
+            </div>
+        </div><div class="follow-card" style="border-color:rgba(251,191,36,0.3);">
+            <div class="follow-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-yellow);">6669</span>
+                    <span class="stock-name">緯穎</span>
+                </div>
+                <span class="follow-count" style="background:rgba(251,191,36,0.15);color:var(--accent-yellow);">多空分歧</span>
+            </div>
+            <div style="margin-bottom:12px;">
+                <div style="color:var(--accent-red);font-weight:600;font-size:0.85em;margin-bottom:8px;">📈 買進方</div>
+                <div class="sync-etfs"><div class="sync-etf" style="border-color:rgba(248,113,113,0.3);">
+                <span class="etf-tag">00405A</span>
+                <span class="badge badge-increase">大幅加倉</span>
+                <span class="shares-info">5,000 → 145,000 股 (+2800.00%)</span>
+                <span class="shares-info" style="color:var(--text-muted);">2026/07/24</span>
+            </div><div class="sync-etf" style="border-color:rgba(248,113,113,0.3);">
+                <span class="etf-tag">00992A</span>
+                <span class="badge badge-new">新建倉</span>
+                <span class="shares-info">0 → 77,000 股 (N/A)</span>
+                <span class="shares-info" style="color:var(--text-muted);">2026/07/24</span>
+            </div></div>
+            </div>
+            <div>
+                <div style="color:var(--accent-green);font-weight:600;font-size:0.85em;margin-bottom:8px;">📉 賣出方</div>
+                <div class="sync-etfs"><div class="sync-etf" style="border-color:rgba(52,211,153,0.3);">
+                <span class="etf-tag" title="統一升級50">00403A</span>
+                <span class="badge badge-decrease">大幅減倉</span>
+                <span class="shares-info">790,000 → 600,000 股 (-24.05%)</span>
+                <span class="shares-info" style="color:var(--text-muted);">2026/07/23</span>
+            </div></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="section" id="section-consecutive">
+        <h2>📊 連續建倉/減倉 — 同一 ETF 連續操作同一股票</h2>
+        <p class="section-desc">同一 ETF 連續多個報告期對同一股票同方向操作，累積變動達顯著閾值</p>
+        <div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00405A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 3次 / 累計+2566.79%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+2200.00%</span>
+                <span class="shares-info">115,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+330.43%</span>
+                <span class="shares-info">495,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+36.36%</span>
+                <span class="shares-info">675,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3443</span>
+                    <span class="stock-name">創意電子</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+486.90%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+425.00%</span>
+                <span class="shares-info">21,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+61.90%</span>
+                <span class="shares-info">34,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3583</span>
+                    <span class="stock-name">辛耘企業</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+187.45%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+100.00%</span>
+                <span class="shares-info">100,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+50.00%</span>
+                <span class="shares-info">150,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+6.00%</span>
+                <span class="shares-info">159,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+31.45%</span>
+                <span class="shares-info">209,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-orange);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-orange);">6147</span>
+                    <span class="stock-name">頎邦科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-orange);">📉 連續減碼 2次 / 累計-143.96%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">-43.96%</span>
+                <span class="shares-info">102,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">-100.00%</span>
+                <span class="shares-info">0 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6139</span>
+                    <span class="stock-name">亞翔工程</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+125.08%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+96.23%</span>
+                <span class="shares-info">104,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+28.85%</span>
+                <span class="shares-info">134,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2449</span>
+                    <span class="stock-name">京元電子</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+105.00%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+100.00%</span>
+                <span class="shares-info">200,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+5.00%</span>
+                <span class="shares-info">210,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2486</span>
+                    <span class="stock-name">一詮精密工業</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+96.85%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+26.02%</span>
+                <span class="shares-info">339,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+29.50%</span>
+                <span class="shares-info">439,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+22.78%</span>
+                <span class="shares-info">539,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+18.55%</span>
+                <span class="shares-info">639,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag" title="統一升級50">00403A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 5次 / 累計+86.39%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+30.32%</span>
+                <span class="shares-info">490,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+22.45%</span>
+                <span class="shares-info">600,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+13.33%</span>
+                <span class="shares-info">680,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+10.29%</span>
+                <span class="shares-info">750,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+10.00%</span>
+                <span class="shares-info">825,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3189</span>
+                    <span class="stock-name">景碩科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+77.68%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+32.05%</span>
+                <span class="shares-info">103,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+45.63%</span>
+                <span class="shares-info">150,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">7769</span>
+                    <span class="stock-name">鴻勁</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+73.85%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+53.85%</span>
+                <span class="shares-info">20,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+20.00%</span>
+                <span class="shares-info">24,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6239</span>
+                    <span class="stock-name">力成</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag" title="統一升級50">00403A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 3次 / 累計+70.03%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+35.71%</span>
+                <span class="shares-info">1,900,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+23.68%</span>
+                <span class="shares-info">2,350,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+10.64%</span>
+                <span class="shares-info">2,600,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">8046</span>
+                    <span class="stock-name">南亞電路板</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+55.48%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+20.72%</span>
+                <span class="shares-info">268,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+15.67%</span>
+                <span class="shares-info">310,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+10.32%</span>
+                <span class="shares-info">342,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+8.77%</span>
+                <span class="shares-info">372,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-orange);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-orange);">5439</span>
+                    <span class="stock-name">高技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag" title="統一台股增長">00981A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-orange);">📉 連續減碼 3次 / 累計-54.27%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">-10.00%</span>
+                <span class="shares-info">2,646,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">-13.83%</span>
+                <span class="shares-info">2,280,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">-30.44%</span>
+                <span class="shares-info">1,586,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3711</span>
+                    <span class="stock-name">日月光投資控股</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+52.79%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+17.34%</span>
+                <span class="shares-info">406,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+17.24%</span>
+                <span class="shares-info">476,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+12.61%</span>
+                <span class="shares-info">536,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+5.60%</span>
+                <span class="shares-info">566,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-orange);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-orange);">2327</span>
+                    <span class="stock-name">國巨*</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00992A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-orange);">📉 連續減碼 2次 / 累計-42.02%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">-6.73%</span>
+                <span class="shares-info">1,927,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">-35.29%</span>
+                <span class="shares-info">1,247,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6488</span>
+                    <span class="stock-name">環球晶圓</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+39.96%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+21.21%</span>
+                <span class="shares-info">80,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+18.75%</span>
+                <span class="shares-info">95,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2308</span>
+                    <span class="stock-name">台達電子工業</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+37.39%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+5.88%</span>
+                <span class="shares-info">144,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+5.56%</span>
+                <span class="shares-info">152,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+13.16%</span>
+                <span class="shares-info">172,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+12.79%</span>
+                <span class="shares-info">194,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">5274</span>
+                    <span class="stock-name">信驊科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+34.14%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+18.52%</span>
+                <span class="shares-info">12,800 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+15.62%</span>
+                <span class="shares-info">14,800 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3653</span>
+                    <span class="stock-name">健策</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00405A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+33.39%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+19.44%</span>
+                <span class="shares-info">215,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+13.95%</span>
+                <span class="shares-info">245,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2454</span>
+                    <span class="stock-name">聯發科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+32.60%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+2.22%</span>
+                <span class="shares-info">138,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+2.17%</span>
+                <span class="shares-info">141,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+3.55%</span>
+                <span class="shares-info">146,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+24.66%</span>
+                <span class="shares-info">182,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-orange);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-orange);">3583</span>
+                    <span class="stock-name">辛耘</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00405A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-orange);">📉 連續減碼 2次 / 累計-32.43%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">-16.56%</span>
+                <span class="shares-info">504,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">-15.87%</span>
+                <span class="shares-info">424,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2330</span>
+                    <span class="stock-name">台灣積體電路製造</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 5次 / 累計+32.22%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+4.96%</span>
+                <span class="shares-info">423,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+4.73%</span>
+                <span class="shares-info">443,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+4.97%</span>
+                <span class="shares-info">465,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+6.45%</span>
+                <span class="shares-info">495,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+11.11%</span>
+                <span class="shares-info">550,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2383</span>
+                    <span class="stock-name">台光電子材料</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+31.09%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+5.63%</span>
+                <span class="shares-info">150,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+4.67%</span>
+                <span class="shares-info">157,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+5.73%</span>
+                <span class="shares-info">166,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+15.06%</span>
+                <span class="shares-info">191,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2059</span>
+                    <span class="stock-name">川湖科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+30.96%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+14.29%</span>
+                <span class="shares-info">24,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+16.67%</span>
+                <span class="shares-info">28,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3017</span>
+                    <span class="stock-name">奇鋐科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 4次 / 累計+30.82%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+5.38%</span>
+                <span class="shares-info">196,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+6.12%</span>
+                <span class="shares-info">208,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+7.21%</span>
+                <span class="shares-info">223,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+12.11%</span>
+                <span class="shares-info">250,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6669</span>
+                    <span class="stock-name">緯穎科技服務</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+29.98%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+18.87%</span>
+                <span class="shares-info">63,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+11.11%</span>
+                <span class="shares-info">70,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2308</span>
+                    <span class="stock-name">台達電子</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag" title="復華未來50">00991A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+27.81%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+19.61%</span>
+                <span class="shares-info">610,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+8.20%</span>
+                <span class="shares-info">660,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">3665</span>
+                    <span class="stock-name">貿聯-KY</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag" title="復華未來50">00991A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+27.10%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/22</span>
+                <span class="shares-info">+21.74%</span>
+                <span class="shares-info">560,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/23</span>
+                <span class="shares-info">+5.36%</span>
+                <span class="shares-info">590,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">2345</span>
+                    <span class="stock-name">智邦科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+25.32%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+14.93%</span>
+                <span class="shares-info">231,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+10.39%</span>
+                <span class="shares-info">255,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6274</span>
+                    <span class="stock-name">台燿科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 2次 / 累計+23.05%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+12.69%</span>
+                <span class="shares-info">222,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+10.36%</span>
+                <span class="shares-info">245,000 股</span>
+            </div></div>
+        </div><div class="sync-card" style="border-color:var(--accent-blue);">
+            <div class="sync-header">
+                <div class="stock-info">
+                    <span class="stock-code" style="color:var(--accent-blue);">6223</span>
+                    <span class="stock-name">旺矽科技</span>
+                </div>
+                <div class="sync-meta">
+                    <span class="etf-tag">00406A</span>
+                    <span class="sync-count" style="background:rgba(91,141,239,0.15);color:var(--accent-blue);">📈 連續加碼 3次 / 累計+22.05%</span>
+                </div>
+            </div>
+            <div class="sync-etfs"><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/24</span>
+                <span class="shares-info">+5.62%</span>
+                <span class="shares-info">94,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/27</span>
+                <span class="shares-info">+5.32%</span>
+                <span class="shares-info">99,000 股</span>
+            </div><div class="sync-etf">
+                <span class="shares-info" style="color:var(--text-primary);">2026/07/28</span>
+                <span class="shares-info">+11.11%</span>
+                <span class="shares-info">110,000 股</span>
+            </div></div>
+        </div>
+    </div>
+
+    
+    <div class="section" id="section-stats">
+        <h2>📈 ETF 先行/跟進統計</h2>
+        <p class="section-desc">各 ETF 在跟進鏈中擔任先行者與跟進者的次數統計</p>
+        <div class="table-wrapper"><table class="solo-table" id="stats-table">
+        <thead><tr>
+            <th onclick="sortTable('stats-table',0)">ETF ⇅</th>
+            <th>名稱</th>
+            <th onclick="sortTable('stats-table',2)">買進先行 ⇅</th>
+            <th onclick="sortTable('stats-table',3)">買進跟進 ⇅</th>
+            <th onclick="sortTable('stats-table',4)">賣出先行 ⇅</th>
+            <th onclick="sortTable('stats-table',5)">賣出跟進 ⇅</th>
+            <th onclick="sortTable('stats-table',6)">先行佔比 ⇅</th>
+            <th onclick="sortTable('stats-table',7)">平均跟進延遲 ⇅</th>
+        </tr></thead><tbody><tr>
+            <td><span class="etf-tag" title="統一升級50">00403A</span></td>
+            <td style="color:var(--text-secondary);">統一升級50</td>
+            <td><strong style="color:var(--accent-green);">2</strong></td>
+            <td>1</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>1</td>
+            <td>17%</td>
+            <td>2.5 天</td>
+        </tr><tr>
+            <td><span class="etf-tag">00405A</span></td>
+            <td style="color:var(--text-secondary);"></td>
+            <td><strong style="color:var(--accent-green);">1</strong></td>
+            <td>1</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>11%</td>
+            <td>1.0 天</td>
+        </tr><tr>
+            <td><span class="etf-tag">00406A</span></td>
+            <td style="color:var(--text-secondary);"></td>
+            <td><strong style="color:var(--accent-green);">0</strong></td>
+            <td>8</td>
+            <td><strong style="color:var(--accent-red);">1</strong></td>
+            <td>0</td>
+            <td>3%</td>
+            <td>4.1 天</td>
+        </tr><tr>
+            <td><span class="etf-tag" title="統一台股增長">00981A</span></td>
+            <td style="color:var(--text-secondary);">統一台股增長</td>
+            <td><strong style="color:var(--accent-green);">0</strong></td>
+            <td>0</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>0%</td>
+            <td>- </td>
+        </tr><tr>
+            <td><span class="etf-tag">00984A</span></td>
+            <td style="color:var(--text-secondary);"></td>
+            <td><strong style="color:var(--accent-green);">1</strong></td>
+            <td>0</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>50%</td>
+            <td>- </td>
+        </tr><tr>
+            <td><span class="etf-tag" title="統一台灣高息優選">00987A</span></td>
+            <td style="color:var(--text-secondary);">統一台灣高息優選</td>
+            <td><strong style="color:var(--accent-green);">4</strong></td>
+            <td>0</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>57%</td>
+            <td>- </td>
+        </tr><tr>
+            <td><span class="etf-tag" title="復華未來50">00991A</span></td>
+            <td style="color:var(--text-secondary);">復華未來50</td>
+            <td><strong style="color:var(--accent-green);">1</strong></td>
+            <td>0</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>17%</td>
+            <td>- </td>
+        </tr><tr>
+            <td><span class="etf-tag">00992A</span></td>
+            <td style="color:var(--text-secondary);"></td>
+            <td><strong style="color:var(--accent-green);">0</strong></td>
+            <td>0</td>
+            <td><strong style="color:var(--accent-red);">0</strong></td>
+            <td>0</td>
+            <td>0%</td>
+            <td>- </td>
+        </tr></tbody></table></div>
+    </div>
+
+    <div class="footer">
+        報告產生時間: 2026/07/28 19:20 ｜ ETF 異動跟進分析工具 (Enhanced)
+    </div>
+
+</div>
+
+<script>
+function sortTable(tableId, colIdx) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const dir = table.dataset.sortDir === 'asc' ? 'desc' : 'asc';
+    table.dataset.sortDir = dir;
+
+    rows.sort((a, b) => {
+        let aVal = a.cells[colIdx].textContent.trim().replace(/[,%+股天]/g, '');
+        let bVal = b.cells[colIdx].textContent.trim().replace(/[,%+股天]/g, '');
+        const aNum = parseFloat(aVal);
+        const bNum = parseFloat(bVal);
+        if (!isNaN(aNum) && !isNaN(bNum)) {
+            return dir === 'asc' ? aNum - bNum : bNum - aNum;
+        }
+        return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    });
+
+    rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+</body>
+</html>
