@@ -1,0 +1,15 @@
+# Python 虛擬環境
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# 追蹤器內部狀態與快取
+.tracker_state*.json*
+.translation_cache.json
+.pytest_cache/
+
+# 系統暫存檔案
+.DS_Store
+*.tmp
