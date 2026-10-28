@@ -277,6 +277,29 @@
     .source-section.empty-hidden {
       display: none !important;
     }
+    .btn-toggle-read {
+      border: 1px solid var(--border-color);
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border-radius: 4px;
+      font-size: 0.74rem;
+      padding: 1px 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+    .btn-toggle-read:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .article-item.is-read .btn-toggle-read {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent-text);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -303,7 +326,8 @@
       <div class="tool-toggles">
         <label><input type="checkbox" id="toggleOnlyUnread"> 只看未讀</label>
         <label><input type="checkbox" id="toggleHideEmpty" checked> 隱藏無命中來源</label>
-        <button id="btnMarkAllRead" class="btn" style="padding:2px 8px;font-size:0.78rem;">全部標為已讀</button>
+        <button id="btnMarkAllRead" class="btn" style="padding:2px 8px;font-size:0.78rem;" title="將當前頁面所有文章標為已讀">全部標為已讀</button>
+        <button id="btnExportRead" class="btn" style="padding:2px 8px;font-size:0.78rem;" title="匯出已讀文章清單為 JSON 供 AI 分析興趣與調整關鍵字">📥 匯出已讀 (<span id="readCountBadge">0</span>)</button>
       </div>
     </div>
     <div id="filterPills" class="filter-pills"></div>
@@ -321,6 +345,7 @@
   <script>
     (function() {
       const STORAGE_READ_KEY = "nt_reader_read_urls_v1";
+      const STORAGE_DETAILS_KEY = "nt_reader_read_details_v1";
       const STORAGE_THEME_KEY = "nt_reader_theme";
       
       let manifest = null;
@@ -336,13 +361,127 @@
           return new Set();
         }
       }
-      function markUrlRead(url) {
-        if (!url) return;
-        const set = getReadSet();
-        set.add(url);
+      function getReadDetailsMap() {
         try {
-          localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(Array.from(set)));
+          return JSON.parse(localStorage.getItem(STORAGE_DETAILS_KEY) || "{}");
+        } catch(e) {
+          return {};
+        }
+      }
+      function updateReadCountBadge() {
+        const details = getReadDetailsMap();
+        const count = Object.keys(details).length;
+        const badge = document.getElementById("readCountBadge");
+        if (badge) badge.textContent = count;
+      }
+
+      function extractArticleMetadata(itemEl, interactionType) {
+        const link = itemEl.querySelector("a");
+        if (!link) return null;
+        const href = link.getAttribute("href");
+        if (!href) return null;
+
+        const summaryZh = link.textContent.trim();
+        const origTitleEl = itemEl.querySelector(".article-orig-title");
+        const origTitle = itemEl.getAttribute("data-orig-title") || (origTitleEl ? origTitleEl.textContent.replace(/^原文：\s*/, "").trim() : "");
+        const origSummary = itemEl.getAttribute("data-orig-summary") || origTitle || summaryZh;
+
+        const sec = itemEl.closest(".source-section");
+        let sourceName = "";
+        if (sec) {
+          sourceName = sec.getAttribute("data-source") || (sec.querySelector("h2") ? sec.querySelector("h2").textContent.trim() : "");
+        } else {
+          let prev = itemEl.parentElement ? itemEl.parentElement.previousElementSibling : null;
+          while (prev) {
+            if (prev.tagName === "H2") {
+              sourceName = prev.textContent.trim();
+              break;
+            }
+            prev = prev.previousElementSibling;
+          }
+        }
+
+        const keywords = [];
+        itemEl.querySelectorAll(".keyword-tag").forEach(tag => {
+          const kw = tag.textContent.trim();
+          if (kw) keywords.push(kw);
+        });
+
+        const timeEl = itemEl.querySelector(".article-time");
+        const published = timeEl ? (timeEl.getAttribute("datetime") || timeEl.textContent.trim()) : null;
+
+        const currIssue = issuesList[currentIndex] || issuesList[0] || {};
+        const reportIssue = currIssue.generated_at || currIssue.id || "";
+
+        return {
+          url: href,
+          title_or_summary_zh: summaryZh,
+          original_title: origTitle,
+          original_summary: origSummary,
+          source: sourceName,
+          keywords: keywords,
+          published: published,
+          report_issue: reportIssue,
+          read_at: new Date().toISOString(),
+          interaction: interactionType || "clicked"
+        };
+      }
+
+      function markArticleRead(itemEl, interactionType) {
+        const link = itemEl.querySelector("a");
+        if (!link) return;
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const readSet = getReadSet();
+        readSet.add(href);
+        try {
+          localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(Array.from(readSet)));
         } catch(e) {}
+
+        const meta = extractArticleMetadata(itemEl, interactionType);
+        if (meta) {
+          const details = getReadDetailsMap();
+          details[href] = meta;
+          try {
+            localStorage.setItem(STORAGE_DETAILS_KEY, JSON.stringify(details));
+          } catch(e) {}
+        }
+
+        itemEl.classList.add("is-read");
+        const btnToggle = itemEl.querySelector(".btn-toggle-read");
+        if (btnToggle) {
+          btnToggle.textContent = "✓ 已讀";
+          btnToggle.title = "已記錄於閱讀分析清單（點擊取消已讀）";
+        }
+        updateReadCountBadge();
+      }
+
+      function unmarkArticleRead(itemEl) {
+        const link = itemEl.querySelector("a");
+        if (!link) return;
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const readSet = getReadSet();
+        readSet.delete(href);
+        try {
+          localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(Array.from(readSet)));
+        } catch(e) {}
+
+        const details = getReadDetailsMap();
+        delete details[href];
+        try {
+          localStorage.setItem(STORAGE_DETAILS_KEY, JSON.stringify(details));
+        } catch(e) {}
+
+        itemEl.classList.remove("is-read");
+        const btnToggle = itemEl.querySelector(".btn-toggle-read");
+        if (btnToggle) {
+          btnToggle.textContent = "○ 標為已讀";
+          btnToggle.title = "標記為已讀並加入分析清單";
+        }
+        updateReadCountBadge();
       }
 
       // Theme toggle
@@ -420,7 +559,6 @@
           btnNext.disabled = true;
           btnLatest.disabled = true;
         } else {
-          // 下一篇 = 更靠近最新（index 變小）；上一篇 = 更舊歷史（index 變大）
           btnNext.disabled = (currentIndex <= 0);
           btnPrev.disabled = (currentIndex >= issuesList.length - 1);
           btnLatest.disabled = (currentIndex === 0);
@@ -450,15 +588,12 @@
           const parser = new DOMParser();
           const doc = parser.parseFromString(htmlText, "text/html");
 
-          // 取出主要內容與原有樣式
           const content = doc.getElementById("report-content") || doc.body;
-          // 清除任何可疑 script
           content.querySelectorAll("script").forEach(s => s.remove());
           
           viewport.innerHTML = "";
           viewport.appendChild(content);
 
-          // 重新初始化文章與篩選
           setupArticleInteractions();
           setupSourcePills();
           applyFilters();
@@ -478,14 +613,42 @@
           const link = item.querySelector("a");
           if (!link) return;
           const href = link.getAttribute("href");
-          if (readSet.has(href)) {
+          const isRead = readSet.has(href);
+          if (isRead) {
             item.classList.add("is-read");
           }
+
+          let btnToggle = item.querySelector(".btn-toggle-read");
+          if (!btnToggle) {
+            btnToggle = document.createElement("button");
+            btnToggle.className = "btn-toggle-read";
+            btnToggle.type = "button";
+            btnToggle.textContent = isRead ? "✓ 已讀" : "○ 標為已讀";
+            btnToggle.title = isRead ? "已記錄於閱讀分析清單（點擊取消已讀）" : "標記為已讀並加入分析清單";
+            btnToggle.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (item.classList.contains("is-read")) {
+                unmarkArticleRead(item);
+              } else {
+                markArticleRead(item, "manual");
+              }
+              applyFilters();
+            });
+
+            const metaDiv = item.querySelector(".article-meta");
+            if (metaDiv) {
+              metaDiv.appendChild(btnToggle);
+            } else {
+              item.appendChild(btnToggle);
+            }
+          }
+
           link.addEventListener("click", () => {
-            markUrlRead(href);
-            item.classList.add("is-read");
+            markArticleRead(item, "clicked");
           });
         });
+        updateReadCountBadge();
       }
 
       function setupSourcePills() {
@@ -556,12 +719,68 @@
       document.getElementById("toggleHideEmpty").addEventListener("change", applyFilters);
 
       document.getElementById("btnMarkAllRead").addEventListener("click", () => {
+        const readSet = getReadSet();
         document.querySelectorAll("#readerViewport .article-item, #readerViewport li").forEach(item => {
           const link = item.querySelector("a");
-          if (link) markUrlRead(link.getAttribute("href"));
+          if (link) {
+            const href = link.getAttribute("href");
+            if (href) readSet.add(href);
+          }
           item.classList.add("is-read");
+          const btn = item.querySelector(".btn-toggle-read");
+          if (btn) btn.textContent = "✓ 已讀";
         });
+        try {
+          localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(Array.from(readSet)));
+        } catch(e) {}
         applyFilters();
+      });
+
+      document.getElementById("btnExportRead").addEventListener("click", () => {
+        const details = getReadDetailsMap();
+        const articles = Object.values(details);
+        if (articles.length === 0) {
+          alert("目前尚無已讀文章記錄。\n\n點擊文章連結或點選「○ 標為已讀」按鈕後，系統會自動記錄您的興趣與關鍵字，屆時即可匯出供 AI 分析！");
+          return;
+        }
+
+        const bySource = {};
+        const byKeyword = {};
+        articles.forEach(a => {
+          if (a.source) bySource[a.source] = (bySource[a.source] || 0) + 1;
+          (a.keywords || []).forEach(kw => {
+            const k = (kw || "").toLowerCase().trim();
+            if (k) byKeyword[k] = (byKeyword[k] || 0) + 1;
+          });
+        });
+
+        const sortedKeywords = Object.fromEntries(
+          Object.entries(byKeyword).sort(([,a], [,b]) => b - a)
+        );
+
+        const exportData = {
+          schema_version: 1,
+          exported_at: new Date().toISOString(),
+          ai_analysis_guide: "這份檔案記錄了使用者在 News Tracker RSS 閱讀器中實際閱讀過的文章。請根據 read_articles 的標題、摘要與統計數據，分析使用者的核心技術與新聞興趣，並針對 sites.yaml 的各來源提供具體的 keywords 新增、移除或細化建議。",
+          summary_stats: {
+            total_read_articles: articles.length,
+            by_source: bySource,
+            by_keyword: sortedKeywords
+          },
+          read_articles: articles
+        };
+
+        const jsonStr = JSON.stringify(exportData, null, 2);
+        const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const dateStr = new Date().toISOString().substring(0, 10);
+        a.href = url;
+        a.download = "news-tracker-read-history-" + dateStr + ".json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
       });
 
       document.getElementById("btnPrev").addEventListener("click", () => {

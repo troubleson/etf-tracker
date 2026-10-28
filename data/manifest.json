@@ -3,11 +3,19 @@
     "id": "latest",
     "path": "reports/latest.zh-TW.html",
     "filename": "latest.zh-TW.html",
-    "generated_at": "2026-10-28T18:00:47+08:00",
-    "count": 23,
+    "generated_at": "2026-10-28T22:34:09+08:00",
+    "count": 17,
     "title": "新聞追蹤報告"
   },
   "archives": [
+    {
+      "id": "latest-20261028-180047-e7a809f3.zh-TW.html",
+      "path": "data/latest-20261028-180047-e7a809f3.zh-TW.html",
+      "filename": "latest-20261028-180047-e7a809f3.zh-TW.html",
+      "generated_at": "2026-10-28T18:00:47+08:00",
+      "count": 23,
+      "title": "新聞追蹤報告"
+    },
     {
       "id": "latest-20261028-104757-c236c844.zh-TW.html",
       "path": "data/latest-20261028-104757-c236c844.zh-TW.html",
