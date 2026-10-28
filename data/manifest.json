@@ -1,0 +1,36 @@
+{
+  "latest": {
+    "id": "latest",
+    "path": "reports/latest.zh-TW.html",
+    "filename": "latest.zh-TW.html",
+    "generated_at": "2026-10-28T10:47:57+08:00",
+    "count": 4,
+    "title": "新聞追蹤報告"
+  },
+  "archives": [
+    {
+      "id": "latest-20261028-104757-0792c29b.zh-TW.html",
+      "path": "data/latest-20261028-104757-0792c29b.zh-TW.html",
+      "filename": "latest-20261028-104757-0792c29b.zh-TW.html",
+      "generated_at": "2026-10-28T10:47:57",
+      "count": 36,
+      "title": "新聞追蹤報告"
+    },
+    {
+      "id": "latest-20261028-080003-79f4bb1f.zh-TW.html",
+      "path": "data/latest-20261028-080003-79f4bb1f.zh-TW.html",
+      "filename": "latest-20261028-080003-79f4bb1f.zh-TW.html",
+      "generated_at": "2026-10-28T08:00:03",
+      "count": 4,
+      "title": "新聞追蹤報告"
+    },
+    {
+      "id": "latest-20261027-180003-5f0fab10.zh-TW.html",
+      "path": "data/latest-20261027-180003-5f0fab10.zh-TW.html",
+      "filename": "latest-20261027-180003-5f0fab10.zh-TW.html",
+      "generated_at": "2026-10-27T18:00:03",
+      "count": 0,
+      "title": "新聞追蹤報告（繁體中文摘要）"
+    }
+  ]
+}
