@@ -1,65 +1,186 @@
 # 新聞追蹤報告
 
-- 生成時間：2026-10-30T18:00:12+08:00
+- 生成時間：2026-10-31T08:00:15+08:00
 
-- 新命中數：13
+- 新命中數：53
 - 來源統計：總計 4，成功 4，失敗 0
 
 ## XDA Developers Latest
 
-- [Your ESP32 can talk to other ESP32s without a router, and it changes what you can build](https://www.xda-developers.com/esp32-talk-to-other-esp32s-without-router-it-changes-what-you-can-build/)
-  - 摘要：Your ESP32 can talk to other ESP32s without a router, and it changes what you can build
-- [After digitizing stacks of my old CDs to lossless audio, I finally perfected my ripping workflow](https://www.xda-developers.com/after-digitizing-stacks-of-my-old-cds-to-lossless-audio-i-finally-perfected-my-ripping-workflow/)
-  - 摘要：After digitizing stacks of my old CDs to lossless audio, I finally perfected my ripping workflow
-- [RTX Spark is here but it's the chassis it comes in that counts](https://www.xda-developers.com/lenovo-yoga-9n-2in1-review/)
-  - 摘要：RTX Spark is here but it's the chassis it comes in that counts
+- [My TV's underpowered USB port was driving me crazy until I discovered this simple fix](https://www.xda-developers.com/my-tvs-underpowered-usb-port-was-driving-me-crazy-until-i-discovered-this-simple-fix/)
+  - 摘要：My TV's underpowered USB port was driving me crazy until I discovered this simple fix
+- [Your ISP's router may be broadcasting a second Wi-Fi network for strangers](https://www.xda-developers.com/your-isps-router-may-be-broadcasting-a-second-wi-fi-network-for-strangers/)
+  - 摘要：Your ISP's router may be broadcasting a second Wi-Fi network for strangers
+- [I replaced Firefox with Zen, and it's what Mozilla should have built years ago](https://www.xda-developers.com/replaced-firefox-with-zen-and-its-what-mozilla-should-have-built-years-ago/)
+  - 摘要：I replaced Firefox with Zen, and it's what Mozilla should have built years ago
+- [I tested every local LLM tweak for real work, and the best ones contradict cloud LLM advice](https://www.xda-developers.com/tested-every-local-llm-tweak-the-best-ones-contradict-cloud-llm-advice/)
+  - 摘要：I tested every local LLM tweak for real work, and the best ones contradict cloud LLM advice
+- [Moving my Wi-Fi 6 router to a shelf beat my $330 Wi-Fi 7 upgrade in the bedroom](https://www.xda-developers.com/wi-fi-7-router-gigabit-plan/)
+  - 摘要：Moving my Wi-Fi 6 router to a shelf beat my $330 Wi-Fi 7 upgrade in the bedroom
+- [I stopped using ChatGPT, Claude, and Gemini for every little task, and my local LLM picked up the slack](https://www.xda-developers.com/stopped-using-chatgpt-claude-gemini-for-every-little-task-local-llm-picked-up-slack/)
+  - 摘要：I stopped using ChatGPT, Claude, and Gemini for every little task, and my local LLM picked up the slack
+- [My Jellyfin server now has a 24/7 weather channel, and it's pure 90s nostalgia](https://www.xda-developers.com/my-jellyfin-server-now-has-a-247-weather-channel-pure-90s-nostalgia/)
+  - 摘要：My Jellyfin server now has a 24/7 weather channel, and it's pure 90s nostalgia
+- [I tried ABS on my budget 3D printer and realized the difficulty is mostly myth](https://www.xda-developers.com/i-tried-abs-on-my-budget-3d-printer-and-realized-the-difficulty-is-mostly-myth/)
+  - 摘要：I tried ABS on my budget 3D printer and realized the difficulty is mostly myth
+- [I gave Thunderbird another chance, and it's the best email app for desktops](https://www.xda-developers.com/gave-thunderbird-another-chance-best-email-app-desktops/)
+  - 摘要：I gave Thunderbird another chance, and it's the best email app for desktops
+- [Why your home lab network should care about Wi-Fi 8 right now](https://www.xda-developers.com/why-wi-fi-8-matters-for-a-homelab-network/)
+  - 摘要：Why your home lab network should care about Wi-Fi 8 right now
+- [I let Claude edit my DaVinci Resolve timeline, and it still couldn't see what matters](https://www.xda-developers.com/let-claude-edit-davinci-resolve-timeline-still-couldnt-see-what-matters/)
+  - 摘要：I let Claude edit my DaVinci Resolve timeline, and it still couldn't see what matters
+- [I discovered a clever Google Maps trick for finding places without using an address](https://www.xda-developers.com/discovered-clever-google-maps-trick-finding-places-without-address/)
+  - 摘要：I discovered a clever Google Maps trick for finding places without using an address
+- [Swapping my DNS server fixed 3 annoying problems on my home network](https://www.xda-developers.com/swapping-dns-server-fixed-annoying-network-problems/)
+  - 摘要：Swapping my DNS server fixed 3 annoying problems on my home network
+- [I used AI to write a Windows script I'd put off for years, and it runs every morning now](https://www.xda-developers.com/used-ai-to-write-windows-script-put-off-for-years-runs-every-morning-now/)
+  - 摘要：I used AI to write a Windows script I'd put off for years, and it runs every morning now
+- [Tailscale's exit nodes and subnet routers do different jobs, and picking the wrong one changes where your DNS goes](https://www.xda-developers.com/tailscale-exit-nodes-subnet-router-different-jobs-pick-wrong-changes-dns/)
+  - 摘要：Tailscale's exit nodes and subnet routers do different jobs, and picking the wrong one changes where your DNS goes
+- [Someone turned a vintage rotary phone into an AI assistant, and so can you](https://www.xda-developers.com/someone-turned-a-vintage-rotary-phone-into-an-ai-assistant-and-so-can-you/)
+  - 摘要：Someone turned a vintage rotary phone into an AI assistant, and so can you
+- [I built Obsidian into my productivity hub and stopped paying for five separate apps](https://www.xda-developers.com/built-obsidian-into-productivity-hub-stopped-paying-for-5-separate-apps/)
+  - 摘要：I built Obsidian into my productivity hub and stopped paying for five separate apps
+- [I play Xbox 360 games on my PC now, and Xenia has finally made it worth it](https://www.xda-developers.com/i-play-xbox-360-games-on-my-pc-now-and-xenia-has-finally-made-it-worth-it/)
+  - 摘要：I play Xbox 360 games on my PC now, and Xenia has finally made it worth it
+- [Two people used Claude to make a PS2 emulator that runs in your browser](https://www.xda-developers.com/two-people-used-claude-to-make-a-ps2-emulator-that-runs-in-your-browser/)
+  - 摘要：Two people used Claude to make a PS2 emulator that runs in your browser
+- [I stopped giving ChatGPT, Claude, and Gemini detailed prompts for a week, and one struggled more than I expected](https://www.xda-developers.com/stopped-giving-chatgpt-claude-and-gemini-detailed-prompts-one-struggled-more-than-expected/)
+  - 摘要：I stopped giving ChatGPT, Claude, and Gemini detailed prompts for a week, and one struggled more than I expected
+- [Transform your iPhone Duo into a mobile productivity beast for just $35](https://www.xda-developers.com/transform-your-iphone-duo-into-a-mobile-productivity-beast-for-just-35/)
+  - 摘要：Transform your iPhone Duo into a mobile productivity beast for just $35
+- [Your motherboard's spare SATA ports are the cheapest storage upgrade left](https://www.xda-developers.com/your-motherboards-spare-sata-ports-are-the-cheapest-storage-upgrade-left/)
+  - 摘要：Your motherboard's spare SATA ports are the cheapest storage upgrade left
 
 ## TechRadar Apple
 
-- [The AI data center race is now a race to power](https://www.techradar.com/pro/the-ai-data-center-race-is-now-a-race-to-power)
-  - 發布時間：Fri, 30 Oct 2026 08:45:05 +0000
+- [A human subject has been injected with an AI-designed virus aiming to kill antibiotic-resistant bacteria, so let's see how that turns out](https://www.techradar.com/pro/a-human-subject-has-been-injected-with-an-ai-designed-virus-aiming-to-kill-antibiotic-resistant-bacteria-so-lets-see-how-that-turns-out)
+  - 發布時間：Fri, 30 Oct 2026 23:05:00 +0000
   - 命中關鍵字：AI
-  - 摘要：As AI demand surges, access to reliable power will determine who leads.
-- [The imperative to prepare for AI-safe data security](https://www.techradar.com/pro/the-imperative-to-prepare-for-ai-safe-data-security)
-  - 發布時間：Fri, 30 Oct 2026 07:41:55 +0000
+  - 摘要：An AI lab designed a virus, put it in a sick person, and then declined to say what happened.
+- [Magnetic tape storage is seeing a second lease of life thanks to AI — and now its largest manufacturer is planning a huge ramp-up in production](https://www.techradar.com/pro/magnetic-tape-storage-is-seeing-a-second-lease-of-life-thanks-to-ai-and-now-its-largest-manufacturer-is-planning-a-huge-ramp-up-in-production)
+  - 發布時間：Fri, 30 Oct 2026 22:10:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Helping security leaders take the right approach to securing their data in the AI era.
-- [Security experts warn North Korean hackers aren't just using AI in their new campaigns, but also 'post-quantum' encryption](https://www.techradar.com/pro/security/security-experts-warn-north-korean-hackers-arent-just-using-ai-in-their-new-campaigns-but-also-post-quantum-encryption)
-  - 發布時間：Fri, 30 Oct 2026 03:05:00 +0000
+  - 摘要：Fujifilm plans 5x tape production growth by 2028 as AI adoption drives data growth and organisations seek affordable offline storage.
+- [US police forces could soon get a major tech upgrade thanks to DT Research's new rugged laptops, which pack in Nvidia graphics and AI processing](https://www.techradar.com/pro/us-police-forces-could-soon-get-a-major-tech-upgrade-thanks-to-dt-researchs-new-rugged-laptops-which-pack-in-nvidia-graphics-and-ai-processing)
+  - 發布時間：Fri, 30 Oct 2026 20:45:00 +0000
   - 命中關鍵字：AI
-  - 摘要：North Korea's Lazarus is wrapping malware delivery in ML-KEM-1024, the NSA's pick for national security systems, but it won't hide the malware itself.
-- [The US Air Force wants to use AI to help with its mid-air refuelling problems](https://www.techradar.com/pro/the-us-air-force-wants-to-use-ai-to-help-with-mid-air-refuelling-problems)
-  - 發布時間：Fri, 30 Oct 2026 01:10:00 +0000
+  - 摘要：But its entry-level GPU is two generations old, and its AI pitch centers on its internals.
+- [Oracle co-founder Larry Ellison thinks AI could make us all rich through a universal high income – but governments will need to change](https://www.techradar.com/pro/oracle-co-founder-larry-ellison-thinks-ai-could-make-us-all-rich-through-a-universal-high-income-but-governments-will-need-to-change)
+  - 發布時間：Fri, 30 Oct 2026 19:15:00 +0000
   - 命中關鍵字：AI
-  - 摘要：The US Air Force wants artificial intelligence to identify aerial refuelling mistakes, improve pilot training and reduce dependence on human assessments.
-- [Anthropic's Elvis lawsuit shows why AI companies need to face the music](https://www.techradar.com/ai-platforms-assistants/anthropic-sued-for-allegedly-using-274-elvis-presley-songs-in-ai-training-and-its-about-time-ai-companies-faced-the-music)
-  - 發布時間：Fri, 30 Oct 2026 01:00:00 +0000
+  - 摘要：The world's eighth-richest person says everyone could become "wealthier," earning a new universal high income from AI.
+- [I still think the Mac mini M4 is 'the best small form factor PC in the world' — and it’s $150 off at Best Buy](https://www.techradar.com/pro/i-still-think-the-mac-mini-m4-is-the-best-small-form-factor-pc-in-the-world-and-its-usd150-off-at-best-buy)
+  - 發布時間：Fri, 30 Oct 2026 18:53:53 +0000
+  - 命中關鍵字：apple
+  - 摘要：Apple’s Mac mini M4 packs a fast M4 chip and 16GB of memory into a tiny desktop that’s the cheapest way into the Mac ecosystem.
+- [The Google Nest Wifi Pro is the simplest Wi-Fi 6E mesh router I’d set up for non-techy family members — and it’s half price at Best Buy](https://www.techradar.com/pro/the-google-nest-wifi-pro-is-the-simplest-wi-fi-6e-mesh-router-id-set-up-for-non-techy-family-members-and-its-half-price-at-best-buy)
+  - 發布時間：Fri, 30 Oct 2026 18:37:26 +0000
+  - 命中關鍵字：WiFi
+  - 摘要：Google’s Nest Wifi Pro is a Wi-Fi 6E mesh router that’s refreshingly easy to set up and manage with Google Home, and one unit covers up to 2,200 square feet.
+- [AI-generated code is still frequently failing security checks — with Claude and GPT-6 topping the leader board](https://www.techradar.com/pro/security/ai-generated-code-is-still-frequently-failing-security-checks-with-claude-and-gpt-6-topping-the-leader-board)
+  - 發布時間：Fri, 30 Oct 2026 18:10:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Anthropic's latest copyright lawsuit over Elvis Presley songs exposes the AI industry's troubling dependence on other people's creative work.
-- [Nvidia is set to work even closer with Meta's slightly creepy Muse AI models — and it's even investing $3bn in Meta to show its support](https://www.techradar.com/pro/nvidia-is-set-to-work-even-closer-with-metas-slightly-creepy-muse-ai-models-and-its-even-investing-usd3bn-in-meta-to-show-its-support)
-  - 發布時間：Fri, 30 Oct 2026 00:25:00 +0000
+  - 摘要：Progress is there, but it's mending a small part of a large wound.
+- [Criminal investigation launched into Google's Finnish data center project](https://www.techradar.com/computing/a-criminal-investigation-is-now-underway-into-googles-ai-data-center-project-in-finland-where-330-hectares-of-forest-were-torn-down)
+  - 發布時間：Fri, 30 Oct 2026 18:00:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Nvidia plans $3 billion investment in Meta’s share offering as companies expand their partnership on Muse AI models and infrastructure.
+  - 摘要：Remember the furore over Google's AI data center in Finland? The police are now investigating the matter.
+- [Mac antivirus from Intego wants to scare away Apple cyberthreats with a 40% discount for Halloween](https://www.techradar.com/pro/mac-antivirus-from-intego-wants-to-scare-away-apple-cyberthreats-with-a-40-percent-discount-for-halloween)
+  - 發布時間：Fri, 30 Oct 2026 17:57:38 +0000
+  - 命中關鍵字：apple
+  - 摘要：Intego is one of our top antivirus software for Mac. And to celebrate the spooky season, the platform has dropped the price of its Advanced plan by 40%.
+- ['It’s 100 percent a national security threat': Accenture contractor connected an AI agent to the Pentagon’s secure network, and then sent data to a high-risk website](https://www.techradar.com/pro/its-100-percent-a-national-security-threat-accenture-contractor-connected-an-ai-agent-to-the-pentagons-secure-network-and-then-sent-data-to-a-high-risk-website)
+  - 發布時間：Fri, 30 Oct 2026 17:30:00 +0000
+  - 命中關鍵字：AI
+  - 摘要：The AI agent sent login details and a map of a secure internal network to a third party website.
+- [We've crowned our Laptop of the Year, and there really was only one choice: the Apple MacBook Neo](https://www.techradar.com/computing/macbooks/weve-crowned-our-laptop-of-the-year-and-there-really-was-only-one-choice-the-apple-macbook-neo)
+  - 發布時間：Fri, 30 Oct 2026 16:50:10 +0000
+  - 命中關鍵字：apple
+  - 摘要：It might not be the best laptop of 2026, but no other laptop released this year had a bigger impact on the industry.
+- [Humanist wins ‘first of its kind’ religious exemption from using AI at work](https://www.techradar.com/ai-platforms-assistants/humanist-wins-first-of-its-kind-religious-exemption-from-using-ai-at-work-civil-rights-ruling-says-kentucky-man-cant-be-forced-to-outsource-thinking-to-llms)
+  - 發布時間：Fri, 30 Oct 2026 15:54:41 +0000
+  - 命中關鍵字：AI
+  - 摘要：A man successfully argued that using AI at work impinged on his sincere religious beliefs.
+- [The accountability gap behind one of AI's biggest risks](https://www.techradar.com/pro/the-accountability-gap-behind-one-of-ais-biggest-risks)
+  - 發布時間：Fri, 30 Oct 2026 15:19:45 +0000
+  - 命中關鍵字：AI
+  - 摘要：AI turns stale website content into a customer-facing problem. But who’s responsible?
+- [Counting agents is the wrong scoreboard: Better questions for enterprise leaders](https://www.techradar.com/pro/counting-agents-is-the-wrong-scoreboard-better-questions-for-enterprise-leaders)
+  - 發布時間：Fri, 30 Oct 2026 14:56:21 +0000
+  - 命中關鍵字：AI
+  - 摘要：The organizations getting real value from AI are not the ones with the longest agent inventory, they are the ones who never framed the problem that way to begin with.
+- [Launching a business? GoDaddy’s Airo AI Builder can have your idea live in minutes](https://www.techradar.com/pro/website-building/ai-live-in-minutes-business-airo-godaddy)
+  - 發布時間：Fri, 30 Oct 2026 14:25:47 +0000
+  - 命中關鍵字：AI
+  - 摘要：GoDaddy’s Airo AI Builder can build a custom website in minutes from a prompt, and you can get started for free
+- [Best Buy's 'DoorBOOster' sale is packed with deals — here are 30+ I'd buy including TVs, Apple, laptops, headphones, and more](https://www.techradar.com/seasonal-sales/best-buys-doorbooster-sale-is-packed-with-deals-here-are-30-id-buy-including-tvs-apple-laptops-headphones-and-more)
+  - 發布時間：Fri, 30 Oct 2026 13:49:23 +0000
+  - 命中關鍵字：apple
+  - 摘要：It feels like Black Friday is coming early at Best Buy this week with the retailer's huge 'DoorBOOster' sale.
+- [The AI Act's longer runway is an opportunity to build governance that lasts](https://www.techradar.com/pro/the-ai-acts-longer-runway-is-an-opportunity-to-build-governance-that-lasts)
+  - 發布時間：Fri, 30 Oct 2026 11:01:24 +0000
+  - 命中關鍵字：AI
+  - 摘要：Europe’s extended AI timeline gives businesses time to build trusted, resilient governance now.
+- [HubSpot AEO review 2026](https://www.techradar.com/pro/hubspot-aeo-review)
+  - 發布時間：Fri, 30 Oct 2026 11:00:19 +0000
+  - 命中關鍵字：AI
+  - 摘要：Useful AI search reports, provided you ask the right questions first.
 
 ## Hacker News active
 
-- [Proton goes all in on using AI](https://convo.casa/@b/117525936178835007)
-  - 發布時間：Thu, 29 Oct 2026 21:49:28 +0000
+- [Linode Security Incident](https://status.linode.com/incidents/nt58zhx3pmgm)
+  - 發布時間：Fri, 30 Oct 2026 21:57:40 +0000
+  - 命中關鍵字：security
+  - 摘要：Article URL: https://status.linode.com/incidents/nt58zhx3pmgm Comments URL: https://news.ycombinator.com/item?id=50310687 Points: 115 # Comments: 60
+- [Product Managers aren't safe either](https://lucaskostka.com/posts/ai-challenges-more-than-devs)
+  - 發布時間：Fri, 30 Oct 2026 20:14:39 +0000
   - 命中關鍵字：ai
-  - 摘要：Article URL: https://convo.casa/@b/117525936178835007 Comments URL: https://news.ycombinator.com/item?id=50296602 Points: 96 # Comments: 96
-- [We ran AI agent swarms in Minecraft and Mindustry](https://labs.ycombinator.com/projects/games/index.html)
-  - 發布時間：Thu, 29 Oct 2026 21:40:28 +0000
-  - 命中關鍵字：ai, agent
-  - 摘要：Article URL: https://labs.ycombinator.com/projects/games/index.html Comments URL: https://news.ycombinator.com/item?id=50296486 Points: 278 # Comments: 98
-- [Show HN: Auto Dismiss Mac OS "Allow <app> to find devices on local networks?"](https://github.com/johncassil/dontallow)
-  - 發布時間：Thu, 29 Oct 2026 19:27:44 +0000
-  - 命中關鍵字：system
-  - 摘要：This popup has been a constant gripe of mine for years. I almost NEVER want to allow this permission and there is no system setting to disable it globally and prevent the popup from interrupting your typing, etc. This tiny swift app I built will autoclose it in 1/4th of a second and leave behind a little notification that it did so. Would love to hear feedback! Comments URL: https://news.ycombinator.com/item?id=50294506 Points: 134 # Comments: 100
-- [Zombie stats: Where the numbers AI quotes come from](https://trakkr.ai/trakkr-research/zombie-stats)
-  - 發布時間：Thu, 29 Oct 2026 15:06:17 +0000
+  - 摘要：Article URL: https://lucaskostka.com/posts/ai-challenges-more-than-devs Comments URL: https://news.ycombinator.com/item?id=50309534 Points: 52 # Comments: 73
+- [French national assembly votes 0.055€/GB internet tax](https://www.lesnumeriques.com/societe-numerique/netflix-steam-cloud-vos-abonnements-et-telechargements-bientot-plus-chers-a-cause-d-une-nouvelle-taxe-n264035.html)
+  - 發布時間：Fri, 30 Oct 2026 18:31:56 +0000
+  - 命中關鍵字：cloud
+  - 摘要：Article URL: https://www.lesnumeriques.com/societe-numerique/netflix-steam-cloud-vos-abonnements-et-telechargements-bientot-plus-chers-a-cause-d-une-nouvelle-taxe-n264035.html Comments URL: https://news.ycombinator.com/item?id=50308240 Points: 104 # Comments: 121
+- [Proton's CEO Cancels AI 'Re-Interviews'](https://www.404media.co/protons-ceo-cancels-ai-re-interviews/)
+  - 發布時間：Fri, 30 Oct 2026 17:24:45 +0000
   - 命中關鍵字：ai
-  - 摘要：Article URL: https://trakkr.ai/trakkr-research/zombie-stats Comments URL: https://news.ycombinator.com/item?id=50290283 Points: 161 # Comments: 67
+  - 摘要：Article URL: https://www.404media.co/protons-ceo-cancels-ai-re-interviews/ Comments URL: https://news.ycombinator.com/item?id=50307183 Points: 252 # Comments: 210
+- [US tech stocks see sharp falls over AI cost fears](https://www.bbc.co.uk/news/articles/cvwy72e0n72yo)
+  - 發布時間：Fri, 30 Oct 2026 16:13:02 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.bbc.co.uk/news/articles/cvwy72e0n72yo Comments URL: https://news.ycombinator.com/item?id=50306008 Points: 230 # Comments: 256
+- [AI isn't replacing SREs, it's deskilling them](https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling)
+  - 發布時間：Fri, 30 Oct 2026 15:52:18 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling Comments URL: https://news.ycombinator.com/item?id=50305693 Points: 478 # Comments: 355
+- [Cisco gives engineer unlimited AI tokens to rewrite legacy code](https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/)
+  - 發布時間：Fri, 30 Oct 2026 14:08:20 +0000
+  - 命中關鍵字：code, ai
+  - 摘要：Article URL: https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/ Comments URL: https://news.ycombinator.com/item?id=50304122 Points: 77 # Comments: 83
+- [Ask HN: Are you tired too in this AI era?](https://news.ycombinator.com/item?id=50301479)
+  - 發布時間：Fri, 30 Oct 2026 09:17:43 +0000
+  - 命中關鍵字：ai
+  - 摘要：Although AI lets us do much more, I feel considerably more tired than before. We need to keep track of many things happening in parallel and read enormous amounts of generated text. The constant guardrailing, decision making, and context switching overload me. I am pretty sure most of you are experiencing the same as me, but: Have you found ways of using AI without increasing mental overload? I would love to hear your tips, but still be relevant in this AI era, so my boss does not fire me. Comments URL: https://news.ycombinator.com/item?id=50301479 Points: 139 # Comments: 135
+- [Backdoor in Claude Code for VS Code extension on the Cursor Marketplace](https://phorion.io/blog/offical-claude-code-vsx-compromise/)
+  - 發布時間：Fri, 30 Oct 2026 07:09:12 +0000
+  - 命中關鍵字：code, security
+  - 摘要：https://cursor.com/blog/claude-code-extension-security-notic... Comments URL: https://news.ycombinator.com/item?id=50300683 Points: 731 # Comments: 455
+- [Building an AI-native engineering org](https://twitter.com/sgondala2/status/2115832070274723875)
+  - 發布時間：Thu, 29 Oct 2026 21:58:34 +0000
+  - 命中關鍵字：engineering, ai
+  - 摘要：Article URL: https://twitter.com/sgondala2/status/2115832070274723875 Comments URL: https://news.ycombinator.com/item?id=50296730 Points: 96 # Comments: 130
 
 ## Lobsters RSS
 
-- 無新命中
+- [Backdoors in Claude Code for VS, Cursor official extensions](https://cyberplace.social/@GossiTheDog/117528831681803563)
+  - 發布時間：Fri, 30 Oct 2026 06:04:55 -0500
+  - 命中關鍵字：code
+  - 摘要：Comments
+- [The federated code forge](https://tangled.org/blog/forge/)
+  - 發布時間：Fri, 30 Oct 2026 12:57:54 -0500
+  - 命中關鍵字：code
+  - 摘要：Comments
+- [Rationale for filtering LLM usage links as off-topic](https://lobste.rs/s/spv7tb/rationale_for_filtering_llm_usage_links)
+  - 發布時間：Fri, 30 Oct 2026 11:49:53 -0500
+  - 命中關鍵字：programming, llm
+  - 摘要：Hi, I've been following recent moderation changes and the discussion around them. I understand that the vibecoding tag was conflating multiple meanings and uses, and how moving to the building-LLM-tooling makes it more precise for that subset of the discussion. I also see how people may be tired of the LLM discussion and want to completely filter out anything LLM related. What I don't quite understand and I'm not sure if it was clearly explained is why stories about "(not) using LLMs" are now considered completely off-topic in this site. There have been plenty of useful discussions around practices and figuring out how to adjust for professional programming in the presence of LLMs over the last few months, and the "flavor" of those discussions is very different from that found in other communities. Also, they seem to still be reasonably encompassed by the current "topicality" guidelines ("Will this improve the reader's next program", etc). Considering they could still be filtered by anyone not wanting to see anything LLM-related, what is the rationale for not having something like llm-usage as a tag and keep those discussions on the site?
