@@ -1,64 +1,156 @@
 # 新聞追蹤報告
 
-- 生成時間：2026-11-02T18:00:14+08:00
+- 生成時間：2026-11-03T08:00:16+08:00
 
-- 新命中數：14
+- 新命中數：44
 - 來源統計：總計 4，成功 4，失敗 0
 
 ## XDA Developers Latest
 
-- [Gemini is replacing Gems with Skills, so I moved my Claude Code skills over to test them](https://www.xda-developers.com/gemini-is-replacing-gems-with-skills-i-moved-claude-code-skills-over-to-test-them/)
-  - 摘要：Gemini is replacing Gems with Skills, so I moved my Claude Code skills over to test them
-- [My cheap Google TV streamer turned out to be a decent retro console once I paired a controller with it](https://www.xda-developers.com/my-cheap-google-tv-streamer-turned-out-to-be-a-decent-retro-console-once-i-paired-a-controller-with-it/)
-  - 摘要：My cheap Google TV streamer turned out to be a decent retro console once I paired a controller with it
-- [I stopped trusting USB C dock power ratings after testing them against my laptop](https://www.xda-developers.com/stopped-trusting-usb-c-dock-power-ratings-after-testing-against-laptop/)
-  - 摘要：I stopped trusting USB C dock power ratings after testing them against my laptop
-- [4 Good Lock modules I install on every Samsung phone before I do anything else](https://www.xda-developers.com/first-good-lock-plugins-i-install-samsung-galaxy/)
-  - 摘要：4 Good Lock modules I install on every Samsung phone before I do anything else
-- [Running Windows apps on Linux just changed forever, and I was one of the first to try it](https://www.xda-developers.com/running-windows-on-linux-just-changed-forever-and-was-one-of-the-first-try/)
-  - 摘要：Running Windows apps on Linux just changed forever, and I was one of the first to try it
+- [I pay for exactly one smart home subscription, and it's the one built so I can cancel it without losing anything](https://www.xda-developers.com/pay-exactly-one-smart-home-subscription-built-can-cancel-without-losing/)
+  - 摘要：I pay for exactly one smart home subscription, and it's the one built so I can cancel it without losing anything
+- [I built the same complex Android app with Claude Code, Google Antigravity, and Codex, and only one felt ready for the Play Store](https://www.xda-developers.com/asked-claude-code-codex-antigravity-to-build-same-android-app-only-one-made-something-i-would-actually-install/)
+  - 摘要：I built the same complex Android app with Claude Code, Google Antigravity, and Codex, and only one felt ready for the Play Store
+- [Kodi's smart playlists let you rethink your library without moving the files](https://www.xda-developers.com/kodis-smart-playlists-let-you-rethink-your-library-without-moving-files/)
+  - 摘要：Kodi's smart playlists let you rethink your library without moving the files
+- [My phone runs a local 2B model that searches the web, and Perplexity feels pointless now](https://www.xda-developers.com/phone-runs-local-model-that-searches-the-web-perplexity-feels-pointless/)
+  - 摘要：My phone runs a local 2B model that searches the web, and Perplexity feels pointless now
+- [Frigate is the best reason to own a home server, and nothing else I run comes close](https://www.xda-developers.com/frigate-is-the-best-reason-to-own-a-home-server/)
+  - 摘要：Frigate is the best reason to own a home server, and nothing else I run comes close
+- [Stop upgrading routers: enable SQM and fix your home's real bottleneck](https://www.xda-developers.com/stop-upgrading-routers/)
+  - 摘要：Stop upgrading routers: enable SQM and fix your home's real bottleneck
+- [My car's Android Auto runs Home Assistant now, and it talks to my house when I arrive home](https://www.xda-developers.com/car-android-auto-home-assistant-talks-house-when-arrive-home/)
+  - 摘要：My car's Android Auto runs Home Assistant now, and it talks to my house when I arrive home
+- [I added Piper to Home Assistant for local AI voice control, but it turned out to be even more useful](https://www.xda-developers.com/i-added-piper-to-home-assistant-for-local-ai-voice-control-but-it-turned-out-to-be-even-moreuseful/)
+  - 摘要：I added Piper to Home Assistant for local AI voice control, but it turned out to be even more useful
+- [I turned my Raspberry Pi into a dedicated internet radio for my kitchen, without adding another voice assistant to my home](https://www.xda-developers.com/raspberry-pi-internet-radio-without-adding-another-voice-assistant-home/)
+  - 摘要：I turned my Raspberry Pi into a dedicated internet radio for my kitchen, without adding another voice assistant to my home
+- [I tried replacing Obsidian multiple times, but these features always bring me back](https://www.xda-developers.com/tried-replacing-obsidian-multiple-times-but-features-always-bring-me-back/)
+  - 摘要：I tried replacing Obsidian multiple times, but these features always bring me back
+- [Google Drive stopped sending my folders to Google Photos, so I built a photo backup server that doesn't need Google at all](https://www.xda-developers.com/build-a-photo-backup-server-that-skips-google/)
+  - 摘要：Google Drive stopped sending my folders to Google Photos, so I built a photo backup server that doesn't need Google at all
+- [Forgot your password? Here's to get back into your Windows PC](https://www.xda-developers.com/how-unlock-computer-without-password/)
+  - 摘要：Forgot your password? Here's to get back into your Windows PC
+- [I let a local LLM read my Jellyfin watch history, and its movie picks are surprisingly good](https://www.xda-developers.com/let-local-llm-read-my-jellyfin-watch-history-its-movie-picks-are-surprisingly-good/)
+  - 摘要：I let a local LLM read my Jellyfin watch history, and its movie picks are surprisingly good
+- [Software choice overload is real, and this is how I find apps that stick](https://www.xda-developers.com/software-choice-overload-is-real-and-this-is-how-i-find-apps-that-stick/)
+  - 摘要：Software choice overload is real, and this is how I find apps that stick
+- [I replaced Notion, Miro, and Trello with one open-source app that surprised me](https://www.xda-developers.com/replaced-notion-miro-trello-with-one-open-source-app-that-surprised-me/)
+  - 摘要：I replaced Notion, Miro, and Trello with one open-source app that surprised me
+- [A $40 controller turned my old flagship into a retro gaming handheld](https://www.xda-developers.com/turned-spare-android-phone-and-controller-into-retro-gaming-handheld/)
+  - 摘要：A $40 controller turned my old flagship into a retro gaming handheld
+- [Restarting Windows and shutting it down aren't the same thing, and Fast Startup is why](https://www.xda-developers.com/restarting-windows-shutting-down-arent-same-thing-fast-startup-is-why/)
+  - 摘要：Restarting Windows and shutting it down aren't the same thing, and Fast Startup is why
+- [PowerToys has quietly turned into the best free app on Windows, and most people still only use it for FancyZones](https://www.xda-developers.com/powertoys-has-more-useful-tools-apart-from-fancyzones/)
+  - 摘要：PowerToys has quietly turned into the best free app on Windows, and most people still only use it for FancyZones
+- [Please stop treating your USB hubs as port replicators](https://www.xda-developers.com/stop-treating-your-usb-hubs-as-port-replicators/)
+  - 摘要：Please stop treating your USB hubs as port replicators
 
 ## TechRadar Apple
 
-- [This Halloween, make sure your sensitive data Is wearing a mask](https://www.techradar.com/pro/this-halloween-make-sure-your-sensitive-data-is-wearing-a-mask)
-  - 發布時間：Mon, 02 Nov 2026 09:52:11 +0000
+- [Proton apologizes to community after internal memo shows force behind proposed AI use in building its privacy products](https://www.techradar.com/vpn/vpn-services/proton-apologizes-to-community-after-internal-memo-shows-force-behind-proposed-ai-use-in-building-its-privacy-products)
+  - 發布時間：Mon, 02 Nov 2026 22:33:47 +0000
   - 命中關鍵字：AI
-  - 摘要：How data masking can protect sensitive information as AI gains greater access to enterprise data.
-- [The in-store telemetry blackout costing retailers billions](https://www.techradar.com/pro/the-in-store-telemetry-blackout-costing-retailers-billions)
-  - 發布時間：Mon, 02 Nov 2026 09:34:33 +0000
+  - 摘要：Proton releases statement on X making security promises to users, as well as providing full details on internal AI engineering manifesto.
+- [Apple charges over 100% more to double Mac Studio M5 Ultra memory, making two 256GB units cheaper than one 512GB](https://www.techradar.com/pro/apple-charges-over-100-more-to-double-mac-studio-m5-ultra-memory-making-two-256gb-units-cheaper-than-one-512gb)
+  - 發布時間：Mon, 02 Nov 2026 21:30:00 +0000
+  - 命中關鍵字：apple
+  - 摘要：Apple charges $11,500 to double Mac Studio M5 Ultra memory to 512GB, making two 256GB machines $701 cheaper than one 512GB model.
+- [OpenAI wants to rebrand data centers as 'compute campuses' to try and win people over](https://www.techradar.com/pro/openai-wants-to-rebrand-data-centers-as-compute-campuses-to-try-and-win-people-over)
+  - 發布時間：Mon, 02 Nov 2026 19:05:00 +0000
   - 命中關鍵字：AI
-  - 摘要：How real-time payment telemetry and AI can prevent costly in-store checkout failures.
-- [Everyone should be building with AI, and everyone should know its cost](https://www.techradar.com/pro/everyone-should-be-building-with-ai-and-everyone-should-know-its-cost)
-  - 發布時間：Mon, 02 Nov 2026 08:57:58 +0000
+  - 摘要：OpenAI knows data centers aren't popular, and might rebrand them as AI compute campuses — but will that help?
+- [Musk's AI Odyssey fails to rival Christopher Nolan](https://www.techradar.com/ai-platforms-assistants/elon-musk-tried-to-prove-grok-could-beat-christopher-nolan-instead-he-proved-why-human-filmmakers-matter)
+  - 發布時間：Mon, 02 Nov 2026 17:08:05 +0000
   - 命中關鍵字：AI
-  - 摘要：When you try to use one AI tool with no defined role for every task, results are disappointing and erode trust in technology.
-- [Anthropic wants to use Claude AI to help discover new lifesaving drugs, says 'the best way to identify and work through these bottlenecks is to get deeply involved in real drug programs'](https://www.techradar.com/pro/anthropic-wants-to-use-claude-ai-to-help-discover-new-lifesaving-drugs-says-the-best-way-to-identify-and-work-through-these-bottlenecks-is-to-get-deeply-involved-in-real-drug-programs)
-  - 發布時間：Mon, 02 Nov 2026 02:15:00 +0000
+  - 摘要：Elon Musk's AI-generated Odyssey demonstrates why AI still can't match the emotional power of human filmmaking.
+- [This new Windows malware steals all your data, then uses AI to rank how valuable you are as a victim](https://www.techradar.com/pro/security/this-new-windows-malware-steals-all-your-data-then-uses-ai-to-rank-how-valuable-you-are-as-a-victim)
+  - 發布時間：Mon, 02 Nov 2026 17:05:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Anthropic is applying Claude to drug discovery, antibody development, pharmaceutical manufacturing, and clinical research.
+  - 摘要：Sifting through a mountain of data is tedious work - so why not let AI do it for you?
+- [AI may be the future, but customer experience must meet the price-point](https://www.techradar.com/pro/ai-may-be-the-future-but-customer-experience-must-meet-the-price-point)
+  - 發布時間：Mon, 02 Nov 2026 15:19:38 +0000
+  - 命中關鍵字：AI
+  - 摘要：To sell complex AI tech, brands must prioritize access to information and expertise over marketing hype.
+- [Google kills off Jules, its AI coding agent which promised to do all the jobs you didn't want to](https://www.techradar.com/pro/google-kills-off-jules-its-ai-coding-agent-which-promised-to-do-all-the-jobs-you-didnt-want-to)
+  - 發布時間：Mon, 02 Nov 2026 14:05:00 +0000
+  - 命中關鍵字：AI
+  - 摘要：Google is shuttering Jules after less than two years – and not even 18 months under general availability – but it's not the end.
+- [Why the AI boom could keep memory prices high until 2030](https://www.techradar.com/computing/memory/is-sam-altman-going-to-break-into-my-house-and-steal-my-ram-no-but-the-ai-memory-crisis-could-be-about-to-get-a-whole-lot-worse)
+  - 發布時間：Mon, 02 Nov 2026 13:56:40 +0000
+  - 命中關鍵字：AI
+  - 摘要：Sam Altman might not physically steal your RAM, but AI isn't the only industry hungry for more memory.
+- [Windows 11 feature built in a flash by AI is impressive — but worrying](https://www.techradar.com/computing/windows/windows-11s-new-internet-speed-test-was-built-in-a-flash-by-agentic-ai-which-is-both-impressive-and-worrying)
+  - 發布時間：Mon, 02 Nov 2026 13:02:09 +0000
+  - 命中關鍵字：AI
+  - 摘要：Is Microsoft wise to be touting the benefits of AI in this way at the current time? I don't think so.
+- [Spotify's AI remix feature is tipped for February, but could cost you extra](https://www.techradar.com/audio/spotify/who-wants-this-spotifys-ai-powered-remix-and-covers-feature-is-tipped-for-a-february-launch-but-it-could-cost-you-usd5-extra-and-users-arent-happy)
+  - 發布時間：Mon, 02 Nov 2026 12:45:01 +0000
+  - 命中關鍵字：AI
+  - 摘要：Spotify wants to plug more AI tools into your Premium subscription, but you're going to have to pay extra for it.
+- [Amazon's now rolling out its 'Ask this book' AI feature to Kindles](https://www.techradar.com/tablets/ereaders/amazons-ask-this-book-feature-is-finally-rolling-out-to-kindles-but-certain-models-and-regions-may-be-excluded)
+  - 發布時間：Mon, 02 Nov 2026 12:05:55 +0000
+  - 命中關鍵字：AI
+  - 摘要：Amazon's 'Ask this book' tool is bringing AI-powered insights and plot reminders to various Kindle models.
+- [Philips Hue’s new AI lighting assistant is finally here, but don’t expect perfection](https://www.techradar.com/home/smart-lights/philips-hue-just-launched-its-ambitious-custom-ai-behaviors-but-early-teething-troubles-show-the-smart-assistant-might-not-be-quite-ready-for-prime-time)
+  - 發布時間：Mon, 02 Nov 2026 11:26:14 +0000
+  - 命中關鍵字：AI
+  - 摘要：The promised Custom AI Behaviors are now available in the Hue app for Hue Bridge Pro owners.
+- [Getting the most out of your collaboration strategy](https://www.techradar.com/pro/getting-the-most-out-of-your-collaboration-strategy)
+  - 發布時間：Mon, 02 Nov 2026 10:41:24 +0000
+  - 命中關鍵字：AI
+  - 摘要：How to effectively implement AI to improve communications and support networks for customers and employees.
 
 ## Hacker News active
 
-- [AI fan wikis riddled with errors are muddying the waters of games culture](https://www.eurogamer.net/ai-fan-wikis-errors-complicating-games-culture)
-  - 發布時間：Mon, 02 Nov 2026 01:47:07 +0000
+- [Oracle files to sell $20B in new stock, bonds to finance AI buildout](https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html)
+  - 發布時間：Mon, 02 Nov 2026 19:27:37 +0000
   - 命中關鍵字：ai
-  - 摘要：Article URL: https://www.eurogamer.net/ai-fan-wikis-errors-complicating-games-culture Comments URL: https://news.ycombinator.com/item?id=50332086 Points: 82 # Comments: 73
-- [AI delivers 'zero financial payoff' to most companies, Apollo economist says](https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/)
-  - 發布時間：Sun, 01 Nov 2026 22:10:45 +0000
+  - 摘要：Article URL: https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html Comments URL: https://news.ycombinator.com/item?id=50342284 Points: 136 # Comments: 93
+- [Egoless Mathematics in the AI Era](https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/)
+  - 發布時間：Mon, 02 Nov 2026 18:54:44 +0000
   - 命中關鍵字：ai
-  - 摘要：Article URL: https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/ Comments URL: https://news.ycombinator.com/item?id=50330456 Points: 225 # Comments: 223
-- [Show HN: OmniDiff – Opensource, super fast, content aware Git difftool, in Rust](https://github.com/ivankovic/omnidiff)
-  - 發布時間：Sun, 01 Nov 2026 13:02:30 +0000
-  - 命中關鍵字：code, ai, open source, pipeline
-  - 摘要：I have been researching what the ultimate diff tool would look like, based on actual diffs in open source repositories. OmniDiff can diff: code (25 languages), config, images, PDFs, archives, cursors, fonts... It's fast. It can diff C++ files of tens of thousands of lines in under 100ms, on a 2023 ThinkPad T14s. It's open source. AGPLv3. It's based on real diffs. I looked at the 7400 repositories that are listed in Gentoo packages, sampled 2000 diffs and solved them manually to get a good understanding of what is needed, before putting together the diff pipelines for each content type. Incidentally, this also forms the basis of the CI pipeline, so the robustness of the codebase is quite high. I'm still developing it. It's v0.3.0 at this time. But I have been using it daily as my git difftool for months now, and it works well. AI Disclosure: Yes, I do use AI. No, I do not vibecode. Comments URL: https://news.ycombinator.com/item?id=50325253 Points: 242 # Comments: 70
+  - 摘要：Article URL: https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/ Comments URL: https://news.ycombinator.com/item?id=50341736 Points: 94 # Comments: 71
+- [Astra can read and write weights to improve Qwen](https://rikiyat.github.io/blog/weight-space-programming/)
+  - 發布時間：Mon, 02 Nov 2026 18:21:28 +0000
+  - 命中關鍵字：programming
+  - 摘要：Article URL: https://rikiyat.github.io/blog/weight-space-programming/ Comments URL: https://news.ycombinator.com/item?id=50341174 Points: 1679 # Comments: 544
+- [Show HN: Subvocal – Talk to your computer without making noise](https://news.ycombinator.com/item?id=50340088)
+  - 發布時間：Mon, 02 Nov 2026 17:16:17 +0000
+  - 命中關鍵字：engineering, ai, system, scaling, build
+  - 摘要：Hi HN, we're Aarush and Arnav from The Subvocal Company (YC F26) ( https://subvocal.company/ ). We’re building smart glasses that let you talk to your computer without talking out loud. You can mouth words silently and discreetly and the glasses decode them to text at the speed of speech. Here's a video of Dave from YC trying it out: https://www.youtube.com/watch?v=9QdX1eObVYI (Edit: you don't actually have to move your lips or even open your mouth for this to work! Since the RF can see inside your mouth the system can be fine tuned on "internal speech". This isn't the automatic tongue movements that occur when "thinking" words to yourself, but more like mouthing with your lips closed. It's a bit weird to do, but with practice, we have been able to get it down pretty well.) Arnav and I were studying CS at Georgia Tech at the beginning of the year, with no experience in silent speech or sensing. We were both AI-native builders and power users of Wispr Flow. What bugged us was not being able to use these tools in the library (or an office) or in public. At Stanford’s TreeHacks in February, we decided to build the most technically ridiculous thing we could think of. We’d read about AlterEgo, a silent speech system out of MIT’s Media Lab, and wanted to recreate it in 36 hours. We built a crude prototype, sticking EMG electrodes onto my face: https://drive.google.com/file/d/1mwhv5HZMz3UTevdrgwS5O7g2jWV... We got it to kind of work at a letter level in a very janky way. It wasn’t good enough to win the hackathon, but convinced us to go all in. The first time I typed a sentence without anyone noticing, I felt the magic of the technology. We quickly realized EMG (reading muscle electrical signals) wouldn’t work: - Signal changes due to sweat - Electrical interference - Placement variability - Most importantly, no one wants to stick electrodes onto their face!! So we switched to RF and built the glasses you see now. They emit radio waves, similar to Bluetooth, that pass through your face. As they cross the tongue, lips and soft palate, they’re modulated by silent mouthing. We train foundation models on this data to decode these perturbations to text. Despite prior academic research, getting this to work was a huge engineering challenge. First we built an extremely low noise RF sensing stack. Then we had to place antennas so their fields overlapped maximally with the articulators. Our first attempt on glasses failed completely, so we reverted to old habits and taped antennas on our face: https://drive.google.com/file/d/1ks0dS0eZiTV9EqSFsyB\_w5BBjpc... Since taping antennas consistently in the same spot and angle was hard, we created this weird but effective head rig to hold them in place: https://drive.google.com/file/d/1rhzNFpdDzr7oHk0isFY70dkoV4C... This worked, but obviously wasn’t a product yet. So we worked deep in simulations to design glasses that could hold the antennas. That evolved into our design now, with antennas embedded within the frames. Once we established there was a signal, the next hurdle was cross-user generalization. Everyone’s facial anatomy, and hence RF signal patterns, are vastly different. We tried algorithmic workarounds but realized the only lever was to massively scale pretraining data. So that’s what we did. We set up booths in our office and paid people to read prompts wearing our glasses, to pretrain our models on. This produced a beautiful scaling curve, with errors falling quickly as we scaled our dataset and cross-user performance becoming genuinely compelling (as you see in the video above; Dave only had a short 20-sentence calibration). We always heard about building things from first principles but never understood it before this. We tried tackling it top down but completely failed. Only when we broke each component (the antenna, electronics, ML) down to its fundamentals to understand and optimize it did we get it to work really well. Over the next few months we’re continuing R&D to turn our prototype glasses into the slick product on our website and ship in Q1 2027. We’re also scaling up our dataset to improve performance on edge cases. For anyone who loves voice dictation but hates using it around people, we’ve opened preorders for our first batch of 500 units, with a $200 discount off the final price. Allocation is running out quickly, so get yours at https://subvocal.co/preorder ! Comments URL: https://news.ycombinator.com/item?id=50340088 Points: 486 # Comments: 265
+- [Launch HN: Momentic (YC W24) – Agents that catch bugs by using your app](https://momentic.ai/)
+  - 發布時間：Mon, 02 Nov 2026 17:05:25 +0000
+  - 命中關鍵字：software, software engineering, engineering, code, ai, llm, agent, oss, infrastructure, implementation, build
+  - 摘要：Hey HN, we’re Wei-Wei and Jeff. We’re building Momentic, QA agents that autonomously plan, explore, and bug-bash controls and user flows in your web, iOS, Android, and (soon) desktop apps to catch bugs. Here’s a demo: https://youtu.be/BFsM-Se1Fh8 We’re both software engineers that spent our careers on dev tooling and infra across companies like Robinhood, Retool, WeWork, and Qualtrics. Testing was always a pain in the ass (esp Playwright and Selenium), so we built agents to do it for us. Modern day software has a ton of bugs and the change failure rate is only growing faster as coding agent adoption scales. LLMs are really good at generating code, but reinforce their own assumptions, write a ton of useless tests, and are bad at visual understanding. On DeepSWE v1.1, Sonnet 5.5 hit 66.2% pass rate when banned from writing tests, versus 65.3% when allowed. OSS end-to-end testing frameworks like Playwright, Selenium, or Maestro force you to hardcode implementation details like XPath, text, or aria-\* attributes in your tests. Even with agents, these take a nontrivial amount of time and tokens to build and maintain. In 2023, we saw Nat Friedman drive a browser with GPT-3 via natbot. We were inspired to use this technology to automate the most painful and tedious parts of software engineering: testing. We started with using LLMs to generate and maintain Playwright, but quickly realized that those primitives were fundamentally misaligned with the agentic SDLC. We think the future of QA is agents testing themselves, not writing scripts. Mo is a custom agent harness for catching bugs that builds on the past 3 years of Momentic and millions of test traces from complex, real-world applications. Mo is built for recall: it finds the most real bugs, though Codex is a bit more precise at 86% vs 84%. The tradeoff is cost: Mo costs $2.67 per bug vs $0.80 for Codex, less than Claude Code and Devin. - Self-organizing agent graph. Mo builds a directed acyclic graph (DAG) as it explores. Large product areas automatically fork into parallel sub-agents, each with their own browser or device for concurrent execution. - Specialized agents for domain specific tasks. Planner agents reason over screenshots and video while dedicated locator agents inspect page structure to resolve plain-English interaction targets. Others include image analysis, video understanding, audio generation, and more. - Parallel agents coordinate through cooperative resource leases. Agents can announce that they’re “using” or “modifying” overlapping resources or fixtures. Multiple “using” claims can coexist, but only a single “modifying” claim can be active on any particular one. - Scaled infrastructure. Mo ships with a tunnel that lets users expose private sites and local apps to our hosted agents and infra. A single bug bash can spin up 100s of concurrent browsers and devices. We benchmarked Mo against coding agents on 4 popular open-source apps: Gitea (58.8k stars), Metabase, Twenty (YC), and Saleor, with 1,396 human-labeled bugs. Each agent got the same brief, a fresh E2B sandbox, and no access to source code. Codex and Claude Code used hosted Browserbase browsers, while Devin used its built-in browser. For evaluators, we implemented LLM as a judge (GPT-6.1 Sol) with a human reviewer. Results from a time-boxed 60-minute run: - Mo: 269 bugs, 19.3% recall, 84% precision, $2.67 per bug - Codex (GPT-6.1 Sol + Playwright MCP): 86 bugs, 6.2% recall, 86% precision, $0.80 per bug - Claude Code (Opus 5.5 + Playwright MCP): 59 bugs, 4.2% recall, 80% precision, $4.09 per bug - Devin: 27 bugs, 1.9% recall, 84% precision, $3.89 per bug Mo finds more bugs the more time it has. From 30 to 60 minutes, it went from 177 to 269 bugs (+52%), while Codex gained only 16%. Results: https://momentic.ai/qa-bench Write-up: https://momentic.ai/blog/qa-bench Dataset: https://huggingface.co/datasets/momentic/qa-bench Harness: https://github.com/momentic-ai/qa-bench We just shipped PR testing for Vercel and Cloudflare deploy previews and we’re giving every new signup $250 in Mo spend. Paid plans have higher infra capacity and included usage along with options to top up. We’d love for you to try it out and give us feedback. Feel free to comment here, we’ll be around all day! Comments URL: https://news.ycombinator.com/item?id=50339913 Points: 110 # Comments: 72
+- [Anthropic's internal AI use, at retail prices, now exceeds its employee pay](https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11)
+  - 發布時間：Mon, 02 Nov 2026 16:40:29 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11 Comments URL: https://news.ycombinator.com/item?id=50339494 Points: 278 # Comments: 232
+- [Jobless tech workers are being left out of San Francisco's AI boom](https://www.bloomberg.com/news/features/2026-09-17/san-francisco-s-ai-wealth-boom-skirts-engineers-as-openai-anthropic-ipos-near)
+  - 發布時間：Mon, 02 Nov 2026 14:40:05 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.bloomberg.com/news/features/2026-09-17/san-francisco-s-ai-wealth-boom-skirts-engineers-as-openai-anthropic-ipos-near Comments URL: https://news.ycombinator.com/item?id=50337454 Points: 154 # Comments: 220
+- [Last night an AI agent performed brain surgery on a mouse](https://twitter.com/OcanaSantero/status/2115442964574908902)
+  - 發布時間：Mon, 02 Nov 2026 12:50:59 +0000
+  - 命中關鍵字：ai, agent
+  - 摘要：Article URL: https://twitter.com/OcanaSantero/status/2115442964574908902 Comments URL: https://news.ycombinator.com/item?id=50336138 Points: 118 # Comments: 98
+- [Supermarket freezers across Europe hit by second suspected cyber-attack](https://www.theguardian.com/world/2026/nov/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack)
+  - 發布時間：Mon, 02 Nov 2026 11:50:13 +0000
+  - 命中關鍵字：security
+  - 摘要：https://www.bbc.com/news/articles/cq1kd1nee80eo https://www.irishtimes.com/technology/data-security/2026/11/... Comments URL: https://news.ycombinator.com/item?id=50335615 Points: 354 # Comments: 403
 
 ## Lobsters RSS
 
-- [Postgres 19 is late, and it's AI's fault](http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html)
-  - 發布時間：Sun, 01 Nov 2026 20:19:02 -0600
-  - 命中關鍵字：ai
+- [Jailbreaking my car's navigation system just so I can change the time](https://blog.nns.ee/2026/11/02/renault-hack/)
+  - 發布時間：Mon, 02 Nov 2026 10:30:58 -0600
+  - 命中關鍵字：system
   - 摘要：Comments
-- [Optimizing CPU-side Rendering Code](https://godotengine.org/article/rendering-cpu-optimizations/)
-  - 發布時間：Mon, 02 Nov 2026 00:21:08 -0600
+- [Polyend releases the Tracker firmware source code](https://backstage.polyend.com/t/tracker-the-biggest-update-yet/25120)
+  - 發布時間：Mon, 02 Nov 2026 09:22:16 -0600
   - 命中關鍵字：code
   - 摘要：Comments
+- [Virtual Art Museum built with Three js](https://dostoynikov.bearblog.dev/virtual-museum-for-my-wifes-artworks/)
+  - 發布時間：Mon, 02 Nov 2026 09:51:17 -0600
+  - 命中關鍵字：build
+  - 摘要：My wife wanted a website for her artworks. While building the website, I suddenly had this urge to try building a virtual art museum to give her motivation. It turned out not bad. Put the rain mode on if you like cats btw. I'm still trying to optimize the performance as I'm having random fps-drops on Android devices. Let me know if you notice any bugs as this project is still in early build. It works best on PCs although tablets and smart phones are also good to go. I'm open to ideas to make it more beautiful. Comments
