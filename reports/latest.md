@@ -1,166 +1,170 @@
 # 新聞追蹤報告
 
-- 生成時間：2026-11-05T08:00:27+08:00
+- 生成時間：2026-11-07T11:03:36+08:00
 
-- 新命中數：46
+- 新命中數：51
 - 來源統計：總計 4，成功 4，失敗 0
 
 ## XDA Developers Latest
 
-- [A guest Wi-Fi network isn't always the right place for your smart TV](https://www.xda-developers.com/a-guest-wi-fi-network-isnt-always-the-right-place-for-your-smart-tv/)
-  - 摘要：A guest Wi-Fi network isn't always the right place for your smart TV
-- [A free Photoshop alternative turned out to be a copy of an indie project, and now I check this before installing any open-source app](https://www.xda-developers.com/free-photoshop-alternative-copy-of-indie-project-check-this-before-installing-open-source-app/)
-  - 摘要：A free Photoshop alternative turned out to be a copy of an indie project, and now I check this before installing any open-source app
-- [I played the original Halo in a browser, and I was blown away by how well it runs](https://www.xda-developers.com/i-played-original-halo-in-browser-blown-away-by-how-well-it-runs/)
-  - 摘要：I played the original Halo in a browser, and I was blown away by how well it runs
-- [I replaced my Pis with mini PCs everywhere except one place, because x86 boxes don't have GPIO pins](https://www.xda-developers.com/i-replaced-my-pis-with-mini-pcs-everywhere-except-one-place-because-x86-boxes-dont-have-gpio-pins/)
-  - 摘要：I replaced my Pis with mini PCs everywhere except one place, because x86 boxes don't have GPIO pins
-- [I measured my local LLM’s power bill and it costs less than a single $20 ChatGPT, Claude or Gemini subscription](https://www.xda-developers.com/i-worked-out-what-my-local-llm-really-costs-to-run-each-month-and-its-less-than-one-ai-subscription/)
-  - 摘要：I measured my local LLM’s power bill and it costs less than a single $20 ChatGPT, Claude or Gemini subscription
-- [I gave my smart home a guest mode so visitors don't have to learn my automations](https://www.xda-developers.com/smart-home-guest-mode-visitors-dont-learn-automations/)
-  - 摘要：I gave my smart home a guest mode so visitors don't have to learn my automations
-- [My 20-year-old iPod beats Android Auto in the car, and streaming never comes into it](https://www.xda-developers.com/my-20-year-old-ipod-beats-android-auto-in-the-car-and-streaming-never-comes-into-it/)
-  - 摘要：My 20-year-old iPod beats Android Auto in the car, and streaming never comes into it
-- [5 things I moved off the cloud and onto my home network this year, and I don't miss any of them](https://www.xda-developers.com/5-things-i-moved-off-the-cloud-and-onto-my-home-network-this-year-and-i-dont-miss-any-of-them/)
-  - 摘要：5 things I moved off the cloud and onto my home network this year, and I don't miss any of them
-- [I flashed MicroPython onto a $4 board, and it's the easiest way into electronics I've found](https://www.xda-developers.com/flashed-micropython-4-board-its-easiest-way-into-electronics-ive-found/)
-  - 摘要：I flashed MicroPython onto a $4 board, and it's the easiest way into electronics I've found
-- [I used Claude Code to control apps that weren't built for AI, and it opens up a whole new workflow](https://www.xda-developers.com/used-claude-code-to-control-apps-that-werent-built-for-ai-opens-up-a-whole-new-workflow/)
-  - 摘要：I used Claude Code to control apps that weren't built for AI, and it opens up a whole new workflow
-- [I almost replaced these 4 Samsung apps, but now I can't imagine my phone without them](https://www.xda-developers.com/samsung-apps-decided-to-keep-instead-of-replacing/)
-  - 摘要：I almost replaced these 4 Samsung apps, but now I can't imagine my phone without them
-- [I missed the days of channel surfing, so I recreated the experience with Jellyfin](https://www.xda-developers.com/i-missed-days-of-channel-surfing-so-i-recreated-experience-with-jellyfin/)
-  - 摘要：I missed the days of channel surfing, so I recreated the experience with Jellyfin
-- [PETG is the filament I'd tell every beginner to start with instead of PLA](https://www.xda-developers.com/petg-tell-every-beginner-to-start-instead-of-pla/)
-  - 摘要：PETG is the filament I'd tell every beginner to start with instead of PLA
-- [Prebuilt NAS boxes are underpowered for the price, so I built one with a desktop CPU instead](https://www.xda-developers.com/xdb-build-nas-that-could-replace-a-prebuilt/)
-  - 摘要：Prebuilt NAS boxes are underpowered for the price, so I built one with a desktop CPU instead
-- [I decluttered my desk, and this 6-port 240W charging station is the only one I use now](https://www.xda-developers.com/decluttered-desk-6-port-240w-charging-station-is-the-only-one-i-use-now/)
-  - 摘要：I decluttered my desk, and this 6-port 240W charging station is the only one I use now
-- [The iRobot Roomba 105 Combo is an affordable helper that mops, vacuums, and empties its own dustbin](https://www.xda-developers.com/irobot-roomba-105-combo-269/)
-  - 摘要：The iRobot Roomba 105 Combo is an affordable helper that mops, vacuums, and empties its own dustbin
-- [Just $100 for a compact, reliable Garmin dash cam with a 33% discount](https://www.xda-developers.com/garmin-stealthy-dash-cam-is-what-you-need-for-your-daily-drives/)
-  - 摘要：Just $100 for a compact, reliable Garmin dash cam with a 33% discount
-- [I cancelled Notion and moved all my notes, docs, and projects into Claude](https://www.xda-developers.com/cancelled-notion-and-moved-all-notes-docs-projects-into-claude/)
-  - 摘要：I cancelled Notion and moved all my notes, docs, and projects into Claude
+- [4 Halloween decorations worth 3D printing instead of buying, and the ones that never are](https://www.xda-developers.com/halloween-decorations-worth-3d-printing-instead-of-buying/)
+  - 摘要：4 Halloween decorations worth 3D printing instead of buying, and the ones that never are
+- [I stopped using my TV's USB port as a power supply for streaming devices](https://www.xda-developers.com/i-stopped-using-my-tvs-usb-port-as-a-power-supply-for-streaming-devices/)
+  - 摘要：I stopped using my TV's USB port as a power supply for streaming devices
+- [The cheapest upgrade for an old Raspberry Pi isn't a new and more expensive Raspberry Pi](https://www.xda-developers.com/cheapest-upgrade-for-an-old-raspberry-pi-is-not-a-new-one/)
+  - 摘要：The cheapest upgrade for an old Raspberry Pi isn't a new and more expensive Raspberry Pi
+- [My local LLM turns my voice notes into to-do items automatically, and nothing falls through the cracks](https://www.xda-developers.com/my-local-llm-turns-my-voice-notes-into-to-do-items-automatically/)
+  - 摘要：My local LLM turns my voice notes into to-do items automatically, and nothing falls through the cracks
+- [I put a temperature sensor in every room, and my thermostat had been lying about my house for years](https://www.xda-developers.com/temperature-sensor-every-room-thermostat-been-lying-for-years/)
+  - 摘要：I put a temperature sensor in every room, and my thermostat had been lying about my house for years
+- [I tried OpenClaw and Perplexity Computer, but ChatGPT Dots finally feels like a personal assistant](https://www.xda-developers.com/tried-openclaw-perplexity-computer-chatgpt-dots-feels-like-personal-assistant/)
+  - 摘要：I tried OpenClaw and Perplexity Computer, but ChatGPT Dots finally feels like a personal assistant
+- [I tried an Android Auto alternative that's rough around the edges, but it won me over](https://www.xda-developers.com/i-tried-an-android-auto-alternative-thats-rough-around-the-edges-but-it-won-me-over/)
+  - 摘要：I tried an Android Auto alternative that's rough around the edges, but it won me over
+- [I turned spare ESP32 boards into motion sensors for rooms using a free open-source project without a single sensor](https://www.xda-developers.com/turned-spare-esp32-into-motion-sensor-rooms-using-open-source-projects/)
+  - 摘要：I turned spare ESP32 boards into motion sensors for rooms using a free open-source project without a single sensor
+- [I let an AI agent migrate my notes from three different apps into Obsidian, and nothing got lost](https://www.xda-developers.com/let-ai-agent-migrate-notes-from-three-apps-into-obsidian-nothing-lost/)
+  - 摘要：I let an AI agent migrate my notes from three different apps into Obsidian, and nothing got lost
+- [I turned this open-source app into my ultimate productivity hub, and it's completely free, private, and powerful](https://www.xda-developers.com/turned-open-source-app-ultimate-productivity-hub-free-private-powerful/)
+  - 摘要：I turned this open-source app into my ultimate productivity hub, and it's completely free, private, and powerful
+- [A tiny Docker container mutes YouTube ads and skips the sponsors on all my TVs, and I didn't have to replace the app](https://www.xda-developers.com/tiny-docker-container-now-skips-youtube-sponsor-segments-all-tvs-didnt-have-replace-app/)
+  - 摘要：A tiny Docker container mutes YouTube ads and skips the sponsors on all my TVs, and I didn't have to replace the app
+- [I replaced my reverse proxy with Tailscale Serve for private services, and I'm not going back](https://www.xda-developers.com/i-replaced-my-reverse-proxy-with-tailscale-serve-for-private-services/)
+  - 摘要：I replaced my reverse proxy with Tailscale Serve for private services, and I'm not going back
+- [I started using OpenCode with VS Code, and now I can't imagine coding any other way](https://www.xda-developers.com/started-using-opencode-with-vs-code-can-not-imagine-coding-any-other-way/)
+  - 摘要：I started using OpenCode with VS Code, and now I can't imagine coding any other way
+- [Google Docs now handles Markdown natively, so I can write without switching between tools](https://www.xda-developers.com/google-docs-handles-markdown-natively-can-write-without-switching-tools/)
+  - 摘要：Google Docs now handles Markdown natively, so I can write without switching between tools
+- [This ESP32 music player can swivel to become a GBA gaming handheld](https://www.xda-developers.com/this-esp32-music-player-can-swivel-to-become-a-gba-gaming-handheld/)
+  - 摘要：This ESP32 music player can swivel to become a GBA gaming handheld
+- [I tried 5 open-source Obsidian alternatives, and one was an easy winner](https://www.xda-developers.com/tried-5-open-source-obsidian-alternatives-one-was-an-easy-winner/)
+  - 摘要：I tried 5 open-source Obsidian alternatives, and one was an easy winner
+- [Before GTA 6 comes out, I'm playing the entirety of GTA 5 completely in my web browser](https://www.xda-developers.com/before-gta-6-comes-out-you-can-play-gta-v-in-browser-it-runs-perfectly/)
+  - 摘要：Before GTA 6 comes out, I'm playing the entirety of GTA 5 completely in my web browser
+- [My gaming GPU sat idle most of the day, so I turned it into a local AI server the whole house can use](https://www.xda-developers.com/my-gaming-gpu-sat-idle-most-of-the-day-so-i-turned-it-into-a-local-ai-server-the-whole-house-can-use/)
+  - 摘要：My gaming GPU sat idle most of the day, so I turned it into a local AI server the whole house can use
+- [This Intel Core Ultra X7 laptop with a 3K OLED screen is $550 off](https://www.xda-developers.com/the-550-price-drop-on-this-laptop-is-well-worth-taking-a-look/)
+  - 摘要：This Intel Core Ultra X7 laptop with a 3K OLED screen is $550 off
+- [Claude Code wrote the Windows setup script I kept putting off, and my fresh installs now finish in 20 minutes](https://www.xda-developers.com/claude-code-fresh-windows-install-script/)
+  - 摘要：Claude Code wrote the Windows setup script I kept putting off, and my fresh installs now finish in 20 minutes
+- [The perfect mini PC for everday use is now down $400 off](https://www.xda-developers.com/acemagic-m5-mini-pc-500-deal/)
+  - 摘要：The perfect mini PC for everday use is now down $400 off
+- [The JBL Vibe Beam 2 earbuds become budget-friendly at just $40](https://www.xda-developers.com/jbl-vibe-beam-2-38-off-right-now/)
+  - 摘要：The JBL Vibe Beam 2 earbuds become budget-friendly at just $40
+- [Samsung's 180Hz QD-OLED gaming monitor is down to $380](https://www.xda-developers.com/samsung-27-odyssey-oled-g5-g50sf-series-380-deal/)
+  - 摘要：Samsung's 180Hz QD-OLED gaming monitor is down to $380
+- [Zelda: Ocarina of Time reportedly already runs on PC through an emulator, just hours after its Switch 2 release](https://www.xda-developers.com/zelda-ocarina-of-time-reportedly-already-runs-on-pc-emulator-just-hours-afterswitch-2-release/)
+  - 摘要：Zelda: Ocarina of Time reportedly already runs on PC through an emulator, just hours after its Switch 2 release
+- [Your Linux desktop has two clipboards, and the reason goes back to a 1980s design decision Wayland chose to keep](https://www.xda-developers.com/linux-desktop-two-clipboards-reason-1980s-decision-wayland/)
+  - 摘要：Your Linux desktop has two clipboards, and the reason goes back to a 1980s design decision Wayland chose to keep
+- [A $20 unmanaged network switch can transform your LAN, even if you're using mesh](https://www.xda-developers.com/unmanaged-network-switch-can-transform-your-lan-even-if-using-mesh/)
+  - 摘要：A $20 unmanaged network switch can transform your LAN, even if you're using mesh
 
 ## TechRadar Apple
 
-- [SpaceX is snapping up hundreds of homes near its new flagship AI data center — but only if the owners agree to one incredible catch](https://www.techradar.com/pro/spacex-is-snapping-up-hundreds-of-homes-near-its-new-flagship-ai-data-center-but-only-if-the-owners-agree-to-one-incredible-catch)
-  - 發布時間：Wed, 04 Nov 2026 19:25:00 +0000
-  - 命中關鍵字：AI
-  - 摘要：SpaceX reportedly wants to purchase 418 homes near its Mississippi AI facilities, with homeowners facing conditions linked to an ongoing turbine noise lawsuit.
-- [Foxconn reveals bid to grab 50% of the global AI server market within the next few years](https://www.techradar.com/pro/foxconn-reveals-bid-to-grab-50-of-the-global-ai-server-market-within-the-next-few-years)
-  - 發布時間：Wed, 04 Nov 2026 18:45:00 +0000
-  - 命中關鍵字：AI
-  - 摘要：Foxconn aims to capture half the global AI server market while expanding American manufacturing and increasing investment in artificial intelligence infrastructure.
-- [Our top Apple iMac alternative from HP drops by $1,350 — but the price cut definitely won't last](https://www.techradar.com/pro/our-top-apple-imac-alternative-from-hp-drops-by-usd1-350-but-the-price-cut-definitely-wont-last)
-  - 發布時間：Wed, 04 Nov 2026 17:48:27 +0000
+- [A new iPad mini has arrived! So how does it compare to the rest of the range?](https://www.techradar.com/tablets/ipad-mini/a-new-ipad-mini-has-arrived-so-how-does-it-compare-to-the-ipad-pro-ipad-air-and-base-ipad)
+  - 發布時間：Sat, 07 Nov 2026 02:00:00 +0000
   - 命中關鍵字：apple
-  - 摘要：We found HP's OmniStudio X to be a productivity-boosting machine for office and creative tasks — now, it's got a very limited-time 61% discount.
-- [AI Godfather Geoffrey Hinton says we may have been 'better off' without AI](https://www.techradar.com/ai-platforms-assistants/it-might-be-that-we-would-have-been-better-off-never-developing-it-geoffrey-hinton-doesnt-like-the-look-of-the-future-of-ai-and-hes-saying-what-weve-all-been-thinking)
-  - 發布時間：Wed, 04 Nov 2026 16:53:44 +0000
+  - 摘要：Apple has expanded its tablet range with an upgraded mini model — here's how it slots into the lineup.
+- [Nvidia reportedly tells data center customers to trim exposure to the Chinese market](https://www.techradar.com/pro/nvidia-reportedly-tells-data-center-customers-to-trim-exposure-to-the-chinese-market)
+  - 發布時間：Sat, 07 Nov 2026 01:25:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Humanity could be at a crossroads between a good or bad future, and AI is the single factor.
-- [CrowdStrike launches 'AI kill switch' it claims can stop rogue agents and more](https://www.techradar.com/pro/security/crowdstrike-launches-ai-kill-switch-it-claims-can-stop-rogue-agents-and-more)
-  - 發布時間：Wed, 04 Nov 2026 15:20:00 +0000
+  - 摘要：Nvidia is requiring foreign cloud providers to serve non-Chinese customers, complicating Chinese access to AI processors through foreign data centers.
+- [OpenAI CEO Sam Altman chats up Samsung to try and secure more RAM — as concerns grow over AI capacity](https://www.techradar.com/pro/openai-ceo-sam-altman-chats-up-samsung-to-try-and-secure-more-ram-as-concerns-grow-over-ai-capacity)
+  - 發布時間：Fri, 06 Nov 2026 23:05:00 +0000
   - 命中關鍵字：AI
-  - 摘要：The new tool comes as part of Falcon Guardian, CrowdStrike's AI Detection and Response platform.
-- [Why coding agents aren’t delivering the promised gains for engineering – yet](https://www.techradar.com/pro/why-coding-agents-arent-delivering-the-promised-gains-for-engineering-yet)
-  - 發布時間：Wed, 04 Nov 2026 15:16:07 +0000
+  - 摘要：Days after calling the RAM in your PC "quite terrible," Sam Altman spent Saturday with Samsung's chip chief, but no deal has been reported yet.
+- [The iPhone Duo with an Apple Pencil is as good a drawing platform as an iPad Mini](https://www.techradar.com/phones/iphone/apples-iphone-duo-and-the-apple-pencil-usb-c-are-the-perfect-doodling-duo-and-now-i-only-wish-i-had-a-place-to-put-the-pencil)
+  - 發布時間：Fri, 06 Nov 2026 20:00:00 +0000
+  - 命中關鍵字：apple
+  - 摘要：The iPhone Duo is the only iPhone to support an Apple Pencil. Here's how to set it up and how well the USB-C version of the stylus works with Apple's first foldable.
+- [This AI enhanced property listing almost drove me insane](https://www.techradar.com/ai-platforms-assistants/i-tried-to-work-out-which-photos-in-this-rightmove-property-listing-were-ai-generated-and-the-more-i-looked-the-worse-it-got)
+  - 發布時間：Fri, 06 Nov 2026 16:24:16 +0000
   - 命中關鍵字：AI
-  - 摘要：AI writes code in minutes, but engineers are struggling to understand and fix it. The knock-on effects are starting to show..
-- [Google won't let schools that opt-out of AI use search](https://www.techradar.com/ai-platforms-assistants/search-and-ai-are-deeply-integrated-google-says-schools-cant-have-search-without-ai-and-that-should-worry-the-rest-of-us)
-  - 發布時間：Wed, 04 Nov 2026 13:33:34 +0000
+  - 摘要：AI photos on property listings are starting to become more common, and some people think its time to take a stand.
+- ['AI security controls are only as strong as the wider application environment around them': OpenAI forced to patch after experts bypass ChatGPT 'lockdown mode' to gain access to entire chat history](https://www.techradar.com/pro/security/ai-security-controls-are-only-as-strong-as-the-wider-application-environment-around-them-openai-forced-to-patch-after-experts-bypass-chatgpt-lockdown-mode-to-gain-access-to-entire-chat-history)
+  - 發布時間：Fri, 06 Nov 2026 16:05:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Google is trying to enhance its AI offering for schools, but they don't get the option to turn it completely off.
-- ['The goal can’t simply be AI usage': New report finds people using AI are working up to 90 minutes extra every day](https://www.techradar.com/pro/the-goal-cant-simply-be-ai-usage-new-report-finds-people-using-ai-are-working-up-to-90-minutes-extra-every-day)
-  - 發布時間：Wed, 04 Nov 2026 12:00:00 +0000
+  - 摘要：Lockdown Mode was bypassed with HTML popups but OpenAI now fixed it.
+- ['Gen Z uses AI the way their grandparents smoked': Students say they feel pressured to use AI, and many would ban it if they could](https://www.techradar.com/pro/gen-z-uses-ai-the-way-their-grandparents-smoked-students-say-they-feel-pressured-to-use-ai-and-many-would-ban-it-if-they-could)
+  - 發布時間：Fri, 06 Nov 2026 14:00:00 +0000
   - 命中關鍵字：AI
-  - 摘要：New study finds AI users are working longer hours - despite promises of improved productivity.
-- [Your AI agents are generating data you can’t afford to monitor](https://www.techradar.com/pro/your-ai-agents-are-generating-data-you-cant-afford-to-monitor)
-  - 發布時間：Wed, 04 Nov 2026 11:42:19 +0000
+  - 摘要：Students admit they rely on AI, and that homework would instantly become harder without it, but they'd still ban it if they could.
+- [Hideo Kojima says AI can’t replace human craftsmanship in video games](https://www.techradar.com/gaming/gaming-industry/hideo-kojima-says-ai-cant-replace-human-creativity-in-video-games-as-he-warns-that-craft-is-irreplaceable-and-i-dont-want-a-future-where-thats-lost)
+  - 發布時間：Fri, 06 Nov 2026 12:38:44 +0000
   - 命中關鍵字：AI
-  - 摘要：Agentic AI is driving a telemetry explosion that could overwhelm budgets and infrastructure.
-- [Physical AI doesn't need a bigger brain. It needs a nervous system](https://www.techradar.com/pro/physical-ai-doesnt-need-a-bigger-brain-it-needs-a-nervous-system)
-  - 發布時間：Wed, 04 Nov 2026 11:35:58 +0000
+  - 摘要：Celebrated game director Hideo Kojima says AI mustn’t replace human craftsmanship in the creative industries.
+- ['The progress is real': Deloitte report claims some firms are finally seeing return on AI investment — but still lack insight into what actually works](https://www.techradar.com/pro/the-progress-is-real-deloitte-report-claims-some-firms-are-finally-seeing-return-on-ai-investment-but-still-lack-insight-into-what-actually-works)
+  - 發布時間：Fri, 06 Nov 2026 12:25:00 +0000
   - 命中關鍵字：AI
-  - 摘要：Like the human nervous system, machines need reasoning, coordination and reflex at every layer.
-- ['AI is changing what it means to be a software developer': New study finds junior workers are scared for their long-term careers as AI takes over](https://www.techradar.com/pro/ai-is-changing-what-it-means-to-be-a-software-developer-new-study-finds-junior-workers-are-scared-for-their-long-term-careers-as-ai-takes-over)
-  - 發布時間：Wed, 04 Nov 2026 11:10:00 +0000
+  - 摘要：AI is finally helping adopters boost revenue, but revenue growth still falls short of productivity and other metrics.
+- [Why responsive stores need orchestration, not more screens](https://www.techradar.com/pro/why-responsive-stores-need-orchestration-not-more-screens)
+  - 發布時間：Fri, 06 Nov 2026 11:22:55 +0000
   - 命中關鍵字：AI
-  - 摘要：Developers feel they need to use AI to tick a box, but they don't think it always helps and many feel unsupported by employers.
-- [What AI-ready data demands](https://www.techradar.com/pro/what-ai-ready-data-demands)
-  - 發布時間：Wed, 04 Nov 2026 11:04:27 +0000
-  - 命中關鍵字：AI
-  - 摘要：AI agents need data products to reliably discover and use enterprise data.
-- ['We were highly skeptical about the cost of AI': Revolut reveals it cut AI coding costs by cutting out Claude entirely](https://www.techradar.com/pro/we-were-highly-skeptical-about-the-cost-of-ai-revolut-reveals-it-cut-ai-coding-costs-by-cutting-out-claude-entirely)
-  - 發布時間：Wed, 04 Nov 2026 10:10:12 +0000
-  - 命中關鍵字：AI
-  - 摘要：Revolut ditches Claude as it lays out a plan to use self-hosted models – but infrastructure costs are still eye-watering.
-- [GMKtec EVO-X5 Pro mini PC review: I tested large LLMs on this machine and the results and speed were impressive](https://www.techradar.com/pro/gmktec-evo-x5-pro-mini-pc-review)
-  - 發布時間：Wed, 04 Nov 2026 10:08:16 +0000
-  - 命中關鍵字：AI
-  - 摘要：The GMKtec EVO-X5 Pro is a mini PC ideal for pro workloads and running 300B LLMs locally with a Ryzen AI Max+ PRO 495, Radeon 8065S graphics and 192GB memory.
+  - 摘要：Data, AI and retail media can make physical stores more responsive.
 
 ## Hacker News active
 
-- [Conductor is joining Meta](https://www.conductor.build/announcement)
-  - 發布時間：Wed, 04 Nov 2026 18:22:40 +0000
+- [AI is dramatically accelerating AI research](https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai)
+  - 發布時間：Fri, 06 Nov 2026 20:27:23 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai Comments URL: https://news.ycombinator.com/item?id=50397994 Points: 211 # Comments: 159
+- [A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost](https://hightouch.com/blog/llm-judges-identity-resolution)
+  - 發布時間：Fri, 06 Nov 2026 19:48:51 +0000
+  - 命中關鍵字：llm
+  - 摘要：Article URL: https://hightouch.com/blog/llm-judges-identity-resolution Comments URL: https://news.ycombinator.com/item?id=50397429 Points: 346 # Comments: 77
+- [Firecracker VM Escape: PwnEscape Part 2](https://pwn.ai/blog/firecracker-escape)
+  - 發布時間：Fri, 06 Nov 2026 19:33:38 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://pwn.ai/blog/firecracker-escape Comments URL: https://news.ycombinator.com/item?id=50397219 Points: 179 # Comments: 79
+- [Perplexity launches AI agents for work](https://www.perplexity.ai/en-GB/hub/blog/teammates-are-agents-for-complex-ongoing-work)
+  - 發布時間：Fri, 06 Nov 2026 17:59:41 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.perplexity.ai/en-GB/hub/blog/teammates-are-agents-for-complex-ongoing-work Comments URL: https://news.ycombinator.com/item?id=50395866 Points: 59 # Comments: 51
+- [Ask HN: What in the world is taking Ubuntu so long?](https://news.ycombinator.com/item?id=50393105)
+  - 發布時間：Fri, 06 Nov 2026 14:58:33 +0000
+  - 命中關鍵字：security, pipeline, build
+  - 摘要：Ubuntu has CVE-2026-98432 marked as a 9.8, but yet it's coming up on a week with no update to fix it. It's still marked as "work in progress" (though at least now they've listed a mitigation): https://ubuntu.com/security/CVE-2026-98432 I've had mitigations in place for a week, but this response is really shaking my confidence in Ubuntu. I'm just trying to understand what is going on with Ubuntu. Do they have too many kernels (that page is loooong), do they not have enough automation in the build/test pipeline, are their engineers overwhelmed? We are moving into a world where there are going to be vastly more security issues; if you can't keep up now, where are you going to be in the next 6 months? For a long time keeping on top of OS updates has been a huge part of keeping the attackers at bay. However, the world is changing. Comments URL: https://news.ycombinator.com/item?id=50393105 Points: 182 # Comments: 117
+- [Gemini Omni 1.2 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/)
+  - 發布時間：Fri, 06 Nov 2026 13:35:27 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ Comments URL: https://news.ycombinator.com/item?id=50392118 Points: 298 # Comments: 220
+- [I struggle to believe that AI R&D is ingenious](https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL)
+  - 發布時間：Fri, 06 Nov 2026 05:19:04 +0000
+  - 命中關鍵字：ai
+  - 摘要：Article URL: https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL Comments URL: https://news.ycombinator.com/item?id=50388513 Points: 180 # Comments: 184
+- [From Linux to Wikipedia: How Volunteers Build the Internet](https://thereader.mitpress.mit.edu/from-linux-to-wikipedia-how-volunteers-build-the-internet/)
+  - 發布時間：Fri, 06 Nov 2026 04:17:49 +0000
   - 命中關鍵字：build
-  - 摘要：Article URL: https://www.conductor.build/announcement Comments URL: https://news.ycombinator.com/item?id=50369503 Points: 78 # Comments: 127
-- [Progress on provable inference for large language models](https://www.anthropic.com/research/provable-inference)
-  - 發布時間：Wed, 04 Nov 2026 17:17:46 +0000
-  - 命中關鍵字：inference
-  - 摘要：Article URL: https://www.anthropic.com/research/provable-inference Comments URL: https://news.ycombinator.com/item?id=50368626 Points: 163 # Comments: 83
-- [Kimi K3.1 Pro model weights are out](https://huggingface.co/moonshotai/Kimi-K3.1-Pro)
-  - 發布時間：Wed, 04 Nov 2026 15:30:30 +0000
-  - 命中關鍵字：model
-  - 摘要：Article URL: https://huggingface.co/moonshotai/Kimi-K3.1-Pro Comments URL: https://news.ycombinator.com/item?id=50366999 Points: 318 # Comments: 85
-- [YC's Garry Tan uses AI agents so much, he spends up to $200K a year on tokens](https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/)
-  - 發布時間：Wed, 04 Nov 2026 15:28:31 +0000
+  - 摘要：Article URL: https://thereader.mitpress.mit.edu/from-linux-to-wikipedia-how-volunteers-build-the-internet/ Comments URL: https://news.ycombinator.com/item?id=50388122 Points: 301 # Comments: 102
+- [Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue](https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html)
+  - 發布時間：Thu, 05 Nov 2026 23:09:57 +0000
   - 命中關鍵字：ai
-  - 摘要：Article URL: https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/ Comments URL: https://news.ycombinator.com/item?id=50366971 Points: 53 # Comments: 72
-- [Evergreen: A Provably Safe Systems Language](https://evergreenlang.net)
-  - 發布時間：Wed, 04 Nov 2026 15:25:04 +0000
-  - 命中關鍵字：systems
-  - 摘要：Article URL: https://evergreenlang.net Comments URL: https://news.ycombinator.com/item?id=50366919 Points: 98 # Comments: 83
-- [Guerrilla bike lanes: San Francisco makes illicit infrastructure permanent (2016)](https://99percentinvisible.org/article/guerrilla-bike-lanes-san-francisco-makes-illicit-infrastructure-permanent/)
-  - 發布時間：Wed, 04 Nov 2026 15:01:44 +0000
-  - 命中關鍵字：infrastructure
-  - 摘要：Article URL: https://99percentinvisible.org/article/guerrilla-bike-lanes-san-francisco-makes-illicit-infrastructure-permanent/ Comments URL: https://news.ycombinator.com/item?id=50366522 Points: 240 # Comments: 171
-- [Ask HN: What's your current AI agentic setup?](https://news.ycombinator.com/item?id=50366117)
-  - 發布時間：Wed, 04 Nov 2026 14:37:22 +0000
-  - 命中關鍵字：code, ai, agent
-  - 摘要：I'm curious how people on HN are using AI day to day, and came up with a list of questions I thought could be interesting to know. No need to answer every question of course, just wanted to get a gut feel how people are using AI. 1) What AI subscriptions are you personally paying for? (Claude, ChatGPT/Codex, Cursor, etc) - Which tiers? - Have you purchased multiple subscriptions from the same provider (eg two Claude accounts)? 2) Are you using models outside (or instead) of those subscriptions? For example, pay-as-you-go APIs, OpenRouter, or locally hosted models. - Which models and providers? 3) What coding harnesses and interfaces are you using? Are you sticking with the default CLIs or IDE integrations, or using alternatives like OpenCode, Pi, Aider, Muse Code, or custom-built harnesses? - What made you switch harnesses (if you switched)? 4) Are you using any agent orchestration or swarm tools? - For example, Munder Difflin, Gas Town, Ruflo, or something custom. 5) Are you using broader agent platforms like OpenClaw / Hermes Agent / Grok bot / Dots / Muse? - If you are using them, what are your main use cases? ----- I know my workflow has differed significantly from a year ago, and so it would be interesting to capture a snapshot today of what people are using and why. Comments URL: https://news.ycombinator.com/item?id=50366117 Points: 67 # Comments: 78
-- [North Korean fake job interview led to $6.3B Binance heist](https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398)
-  - 發布時間：Wed, 04 Nov 2026 14:09:55 +0000
-  - 命中關鍵字：security
-  - 摘要：Article URL: https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398 Comments URL: https://news.ycombinator.com/item?id=50365755 Points: 560 # Comments: 343
-- [Debian apt security update: man-in-the-middle arbitrary code execution](https://lists.debian.org/debian-security-announce/2026/msg00526.html)
-  - 發布時間：Wed, 04 Nov 2026 12:46:58 +0000
-  - 命中關鍵字：code, security
-  - 摘要：Article URL: https://lists.debian.org/debian-security-announce/2026/msg00526.html Comments URL: https://news.ycombinator.com/item?id=50364814 Points: 97 # Comments: 76
-- [AI is forcing us to pay off 40 years of technical debt](https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability)
-  - 發布時間：Wed, 04 Nov 2026 11:52:17 +0000
-  - 命中關鍵字：ai, cybersecurity, vulnerability
-  - 摘要：Article URL: https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability Comments URL: https://news.ycombinator.com/item?id=50364336 Points: 1011 # Comments: 607
-- [Geoffrey Hinton: it might turn out we were better off without AI](https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai)
-  - 發布時間：Wed, 04 Nov 2026 10:23:34 +0000
-  - 命中關鍵字：ai
-  - 摘要：Article URL: https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai Comments URL: https://news.ycombinator.com/item?id=50363554 Points: 295 # Comments: 291
-- [Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)](https://news.ycombinator.com/item?id=50363461)
-  - 發布時間：Wed, 04 Nov 2026 10:10:27 +0000
-  - 命中關鍵字：ai
-  - 摘要：If you have a personal Google AI subscription, all your saved chat history in Gemini can be used for training and there is no way to opt out unless you turn off chat history or use temporary chat sessions. These chat transcripts may even be read by human reviewers. Although Google claims to disconnect them from your account when human-reviewed, they explicitly warn not to enter confidential information . https://support.google.com/gemini/answer/16836988 “\[Gemini app activity\] is used to improve Google services for everyone, including by training generative AI models, if your Keep Activity setting is on.“ https://support.google.com/gemini/answer/13594961?hl=en#human\_review “A subset of chats are reviewed by human reviewers” https://support.google.com/gemini/answer/13594961?hl=en#pn\_retain\_data “Chats reviewed by human reviewers \[...\] are not deleted when you delete your activity. Instead, they are retained for up to three years.” https://support.google.com/gemini/answer/13594961?hl=en#pn\_data\_usage “Please don’t enter confidential information that you wouldn’t want a reviewer to see or Google to use to improve our services, including machine-learning technologies.” To disable their training on your chat sessions, you need to turn off “Keep Activity” in Gemini’s settings. Turning that off means you’ll lose any chat sessions after 72 hours. I learned this too late, thinking that having a paid subscription = not being turned into the product. Apparently paying is not enough. Thank you to this user on HN for mentioning in another thread: https://news.ycombinator.com/item?id=50355424 Comments URL: https://news.ycombinator.com/item?id=50363461 Points: 618 # Comments: 157
-- [Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux](https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop)
-  - 發布時間：Wed, 04 Nov 2026 08:46:29 +0000
-  - 命中關鍵字：ai, inference
-  - 摘要：Article URL: https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop Comments URL: https://news.ycombinator.com/item?id=50362905 Points: 578 # Comments: 266
+  - 摘要：Article URL: https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html Comments URL: https://news.ycombinator.com/item?id=50385870 Points: 496 # Comments: 223
+- [Claude Code sends your email address to websites](https://github.com/anthropics/claude-code/issues/107757)
+  - 發布時間：Thu, 05 Nov 2026 22:17:15 +0000
+  - 命中關鍵字：code
+  - 摘要：Article URL: https://github.com/anthropics/claude-code/issues/107757 Comments URL: https://news.ycombinator.com/item?id=50385272 Points: 1554 # Comments: 493
+- [MS Paint Remote Code Execution Vulnerability](https://www.cve.org/CVERecord?id=CVE-2026-83844)
+  - 發布時間：Thu, 05 Nov 2026 20:43:42 +0000
+  - 命中關鍵字：code, vulnerability
+  - 摘要：Article URL: https://www.cve.org/CVERecord?id=CVE-2026-83844 Comments URL: https://news.ycombinator.com/item?id=50384233 Points: 701 # Comments: 275
 
 ## Lobsters RSS
 
-- [Gleam Programming Language Update October 2026](https://www.youtube.com/watch?v=Jm2HZhwreNs)
-  - 發布時間：Wed, 04 Nov 2026 09:54:58 -0600
+- [Inside GitHub's new Git storage architecture](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
+  - 發布時間：Fri, 06 Nov 2026 11:50:09 -0600
+  - 命中關鍵字：architecture, storage
+  - 摘要：Comments
+- [Software Line Specialist](https://lovro-bikic.github.io/software-line-specialist/)
+  - 發布時間：Thu, 05 Nov 2026 10:32:29 -0600
+  - 命中關鍵字：software
+  - 摘要：Comments
+- [Firststeps in bare-metal programming using UEFI](https://kevinboone.me/efitest_index.html)
+  - 發布時間：Fri, 06 Nov 2026 12:51:53 -0600
+  - 命中關鍵字：programming
+  - 摘要：Comments
+- [Inform is a programming language for creating interactive fiction](https://ganelson.github.io/inform-website/)
+  - 發布時間：Fri, 06 Nov 2026 20:05:38 -0600
   - 命中關鍵字：programming
   - 摘要：Comments
